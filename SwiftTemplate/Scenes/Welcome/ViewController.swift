@@ -12,14 +12,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        LoginManager().signIn(username: "test@test.com",
+                              password: "test123",
+                              loginCompletionHandler: onLoginCompleted)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func onLoginCompleted(error: ApiError?) {
+
     }
-
-
 }
-
