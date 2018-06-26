@@ -8,14 +8,14 @@
 
 import Foundation
 
-typealias LoginManagerLoginCompletion = (_ error: ApiError?) -> Void
+typealias LoginServiceLoginCompletion = (_ error: ApiError?) -> Void
 
-class LoginManager {
+class LoginService {
 
-    var loginCompletionHandler: LoginManagerLoginCompletion?
+    var loginCompletionHandler: LoginServiceLoginCompletion?
 
     func signIn(username: String, password: String,
-                loginCompletionHandler: @escaping LoginManagerLoginCompletion) {
+                loginCompletionHandler: @escaping LoginServiceLoginCompletion) {
         self.loginCompletionHandler = loginCompletionHandler
         CountriesApiClient().signIn(username: username,
                                     password: password,

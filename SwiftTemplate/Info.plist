@@ -4,12 +4,12 @@
 <dict>
 	<key>AppConfiguration</key>
 	<dict>
-		<key>appCenterId</key>
-		<string>$(appCenterId)</string>
 		<key>apiClient</key>
 		<string>$(apiClient)</string>
 		<key>apiSecret</key>
 		<string>$(apiSecret)</string>
+		<key>appCenterId</key>
+		<string>$(appCenterId)</string>
 		<key>serverProto</key>
 		<string>$(serverProto)</string>
 		<key>serverUrl</key>
@@ -45,9 +45,9 @@
 		<true/>
 	</dict>
 	<key>UILaunchStoryboardName</key>
-	<string>Main</string>
+	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
+	<string>Welcome</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

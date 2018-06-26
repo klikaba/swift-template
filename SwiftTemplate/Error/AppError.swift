@@ -9,6 +9,13 @@
 import Alamofire
 
 class AppError: Error {
+    let code: Int
+    let message: String
+
+    init(code: Int, message: String) {
+        self.code = code
+        self.message = message
+    }
 }
 
 class ApiError: AppError {
@@ -34,6 +41,20 @@ class ApiError: AppError {
         self.response = response
         self.data = data
         self.error = error
+        super.init(code: 1, message: "Network error!")
+    }
+
+    public init(
+        request: URLRequest?,
+        response: HTTPURLResponse?,
+        data: Data?,
+        error: Error?,
+        errorMessage: String) {
+        self.request = request
+        self.response = response
+        self.data = data
+        self.error = error
+        super.init(code: 1, message: errorMessage)
     }
 
     static func fromDataResponse<T>(response: DataResponse<T>) -> ApiError? {
