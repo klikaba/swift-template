@@ -9,7 +9,4 @@
 import Foundation
 
 class WelcomeViewModel: AppViewModel {
-    public func isLoggedIn() -> Bool {
-        return SessionStore.get() != nil
-    }
 }

@@ -32,11 +32,10 @@ class LoginViewController: AppViewControler<LoginViewModel> {
         passwordTextField.rx.text.orEmpty.bind(to: viewModel.password).disposed(by: disposeBag)
 
         // Output
-        viewModel.isLoginButtonEnabled.bind(to: loginButton.rx.isEnabled).disposed(by: disposeBag)
+        viewModel.isLoginEnabled.bind(to: loginButton.rx.isEnabled).disposed(by: disposeBag)
         viewModel.loginCompletion.asObservable().subscribe(onNext: { error in
             print("DONE \(String(describing: error))")
         }).disposed(by: disposeBag)
-
     }
 
     @IBAction func onLoginClicked(_ sender: Any) {

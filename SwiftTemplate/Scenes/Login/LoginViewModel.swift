@@ -17,11 +17,12 @@ class LoginViewModel: AppViewModel {
     // Output
     var loginCompletion = BehaviorSubject<AppError?>(value: nil)
 
-    var isLoginButtonEnabled: Observable<Bool> {
+    var isLoginEnabled: Observable<Bool> {
         return Observable.combineLatest(self.username.asObservable(),
                                         self.password.asObservable()) { (username, password) in
             return username.count > 0 && password.count > 0
         }
+
     }
 
     func doLogin() {
@@ -31,7 +32,6 @@ class LoginViewModel: AppViewModel {
     }
 
     func onLoginCompleted(_ error: ApiError?) {
-        self.error.value = error
         loginCompletion.onNext(error)
     }
 }

@@ -346,7 +346,7 @@
 		01DBF23A20B6FC1600DCEF1B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Klika d.o.o. Sarajevo";
 				TargetAttributes = {
