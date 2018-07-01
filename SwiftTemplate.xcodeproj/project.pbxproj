@@ -15,6 +15,30 @@
 		012C424620B71A26007EC314 /* RealmDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C424520B71A26007EC314 /* RealmDAO.swift */; };
 		0150F57E20CA7CE40017F90F /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0150F57D20CA7CE40017F90F /* AppViewController.swift */; };
 		0150F58020CA7EC30017F90F /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0150F57F20CA7EC30017F90F /* AppViewModel.swift */; };
+		0153B90820E678C200AD3B6F /* CountryMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153B90720E678C200AD3B6F /* CountryMapperTests.swift */; };
+		0153B90920E67A1400AD3B6F /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D8AC8B20BC8F9200D10081 /* AppError.swift */; };
+		0153B90A20E67A1900AD3B6F /* ModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0167BD9920C0102300F44946 /* ModelMapper.swift */; };
+		0153B90B20E67A1B00AD3B6F /* CountryMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0167BD9B20C0102C00F44946 /* CountryMapper.swift */; };
+		0153B90C20E67A1D00AD3B6F /* DBCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C422E20B71743007EC314 /* DBCountry.swift */; };
+		0153B90D20E67A2200AD3B6F /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C423020B7175B007EC314 /* Country.swift */; };
+		0153B90E20E67A2200AD3B6F /* Countries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D8AC8D20BCA20300D10081 /* Countries.swift */; };
+		0153B90F20E67A2200AD3B6F /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D8AC8F20BCB1D700D10081 /* AccessToken.swift */; };
+		0153B91020E67A2600AD3B6F /* CountryDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C423920B71961007EC314 /* CountryDAO.swift */; };
+		0153B91120E67A2600AD3B6F /* RealmDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C424520B71A26007EC314 /* RealmDAO.swift */; };
+		0153B91220E67A2A00AD3B6F /* CountriesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D8AC8620BC89E900D10081 /* CountriesAPIClient.swift */; };
+		0153B91320E67A2A00AD3B6F /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D8AC8820BC8E7600D10081 /* ApiClient.swift */; };
+		0153B91420E67A2A00AD3B6F /* OAuth2Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A43EBE20BF35970068B0EC /* OAuth2Handler.swift */; };
+		0153B91520E67A3200AD3B6F /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019A889520BFF6AE0096C6C0 /* LoginService.swift */; };
+		0153B91620E67A3200AD3B6F /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D8AC9620BD1E4000D10081 /* SessionStore.swift */; };
+		0153B91720E67A3900AD3B6F /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012C422120B711A3007EC314 /* AppConfiguration.swift */; };
+		0153B91820E67A3900AD3B6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DBF24520B6FC1600DCEF1B /* AppDelegate.swift */; };
+		0153B91920E67A4600AD3B6F /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0150F57D20CA7CE40017F90F /* AppViewController.swift */; };
+		0153B91A20E67A4600AD3B6F /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0150F57F20CA7EC30017F90F /* AppViewModel.swift */; };
+		0153B91B20E67A4600AD3B6F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DBF24720B6FC1600DCEF1B /* WelcomeViewController.swift */; };
+		0153B91C20E67A4600AD3B6F /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018A1E9D20CABADE00BDC03D /* WelcomeViewModel.swift */; };
+		0153B91D20E67A4600AD3B6F /* WelcomeNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018A1E9F20CABE0A00BDC03D /* WelcomeNavigator.swift */; };
+		0153B91E20E67A4600AD3B6F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018A1EA520CABF9700BDC03D /* LoginViewController.swift */; };
+		0153B91F20E67A4600AD3B6F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016FB75D20CACCE400946025 /* LoginViewModel.swift */; };
 		0167BD9A20C0102300F44946 /* ModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0167BD9920C0102300F44946 /* ModelMapper.swift */; };
 		0167BD9C20C0102C00F44946 /* CountryMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0167BD9B20C0102C00F44946 /* CountryMapper.swift */; };
 		016FB75C20CACB7F00946025 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 016FB75B20CACB7F00946025 /* LaunchScreen.storyboard */; };
@@ -38,6 +62,16 @@
 		4A6B90B8C7C875A521EB10BE /* Pods_SwiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF1403356DFE7622A02C2C8 /* Pods_SwiftTemplate.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0153B8FE20E6784F00AD3B6F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01DBF23A20B6FC1600DCEF1B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01DBF24120B6FC1600DCEF1B;
+			remoteInfo = SwiftTemplate;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		012C422120B711A3007EC314 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		012C422620B71493007EC314 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -47,6 +81,9 @@
 		012C424520B71A26007EC314 /* RealmDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDAO.swift; sourceTree = "<group>"; };
 		0150F57D20CA7CE40017F90F /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		0150F57F20CA7EC30017F90F /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		0153B8F920E6784F00AD3B6F /* SwiftTemplateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftTemplateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0153B8FD20E6784F00AD3B6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0153B90720E678C200AD3B6F /* CountryMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryMapperTests.swift; sourceTree = "<group>"; };
 		0167BD9920C0102300F44946 /* ModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMapper.swift; sourceTree = "<group>"; };
 		0167BD9B20C0102C00F44946 /* CountryMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryMapper.swift; sourceTree = "<group>"; };
 		016FB75B20CACB7F00946025 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,6 +116,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0153B8F620E6784F00AD3B6F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		01DBF23F20B6FC1600DCEF1B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -183,6 +227,32 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		0153B8FA20E6784F00AD3B6F /* SwiftTemplateTests */ = {
+			isa = PBXGroup;
+			children = (
+				0153B90520E6787B00AD3B6F /* Models */,
+				0153B8FD20E6784F00AD3B6F /* Info.plist */,
+			);
+			path = SwiftTemplateTests;
+			sourceTree = "<group>";
+		};
+		0153B90520E6787B00AD3B6F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0153B90620E678B300AD3B6F /* Mappers */,
+			);
+			name = Models;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		0153B90620E678B300AD3B6F /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				0153B90720E678C200AD3B6F /* CountryMapperTests.swift */,
+			);
+			path = Mappers;
+			sourceTree = "<group>";
+		};
 		0167BD9820C0100700F44946 /* Mappers */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +327,7 @@
 				012C422620B71493007EC314 /* .swiftlint.yml */,
 				01DBF25920B6FD9300DCEF1B /* Environments */,
 				01DBF24420B6FC1600DCEF1B /* SwiftTemplate */,
+				0153B8FA20E6784F00AD3B6F /* SwiftTemplateTests */,
 				01DBF24320B6FC1600DCEF1B /* Products */,
 				0872FACE56CA9DE4573A5DC1 /* Pods */,
 				E701FBB9D125CA9DF30151E2 /* Frameworks */,
@@ -267,6 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				01DBF24220B6FC1600DCEF1B /* SwiftTemplate.app */,
+				0153B8F920E6784F00AD3B6F /* SwiftTemplateTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -320,6 +392,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0153B8F820E6784F00AD3B6F /* SwiftTemplateTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0153B90420E6784F00AD3B6F /* Build configuration list for PBXNativeTarget "SwiftTemplateTests" */;
+			buildPhases = (
+				0153B8F520E6784F00AD3B6F /* Sources */,
+				0153B8F620E6784F00AD3B6F /* Frameworks */,
+				0153B8F720E6784F00AD3B6F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0153B8FF20E6784F00AD3B6F /* PBXTargetDependency */,
+			);
+			name = SwiftTemplateTests;
+			productName = SwiftTemplateTests;
+			productReference = 0153B8F920E6784F00AD3B6F /* SwiftTemplateTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		01DBF24120B6FC1600DCEF1B /* SwiftTemplate */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01DBF25420B6FC1600DCEF1B /* Build configuration list for PBXNativeTarget "SwiftTemplate" */;
@@ -350,6 +440,11 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Klika d.o.o. Sarajevo";
 				TargetAttributes = {
+					0153B8F820E6784F00AD3B6F = {
+						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 01DBF24120B6FC1600DCEF1B;
+					};
 					01DBF24120B6FC1600DCEF1B = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -370,11 +465,19 @@
 			projectRoot = "";
 			targets = (
 				01DBF24120B6FC1600DCEF1B /* SwiftTemplate */,
+				0153B8F820E6784F00AD3B6F /* SwiftTemplateTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0153B8F720E6784F00AD3B6F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		01DBF24020B6FC1600DCEF1B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -454,6 +557,37 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0153B8F520E6784F00AD3B6F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0153B90D20E67A2200AD3B6F /* Country.swift in Sources */,
+				0153B91120E67A2600AD3B6F /* RealmDAO.swift in Sources */,
+				0153B91720E67A3900AD3B6F /* AppConfiguration.swift in Sources */,
+				0153B90F20E67A2200AD3B6F /* AccessToken.swift in Sources */,
+				0153B91220E67A2A00AD3B6F /* CountriesAPIClient.swift in Sources */,
+				0153B91B20E67A4600AD3B6F /* WelcomeViewController.swift in Sources */,
+				0153B91920E67A4600AD3B6F /* AppViewController.swift in Sources */,
+				0153B90B20E67A1B00AD3B6F /* CountryMapper.swift in Sources */,
+				0153B90820E678C200AD3B6F /* CountryMapperTests.swift in Sources */,
+				0153B91520E67A3200AD3B6F /* LoginService.swift in Sources */,
+				0153B91A20E67A4600AD3B6F /* AppViewModel.swift in Sources */,
+				0153B91E20E67A4600AD3B6F /* LoginViewController.swift in Sources */,
+				0153B91F20E67A4600AD3B6F /* LoginViewModel.swift in Sources */,
+				0153B91420E67A2A00AD3B6F /* OAuth2Handler.swift in Sources */,
+				0153B91020E67A2600AD3B6F /* CountryDAO.swift in Sources */,
+				0153B91320E67A2A00AD3B6F /* ApiClient.swift in Sources */,
+				0153B91820E67A3900AD3B6F /* AppDelegate.swift in Sources */,
+				0153B90A20E67A1900AD3B6F /* ModelMapper.swift in Sources */,
+				0153B91D20E67A4600AD3B6F /* WelcomeNavigator.swift in Sources */,
+				0153B91C20E67A4600AD3B6F /* WelcomeViewModel.swift in Sources */,
+				0153B90C20E67A1D00AD3B6F /* DBCountry.swift in Sources */,
+				0153B90E20E67A2200AD3B6F /* Countries.swift in Sources */,
+				0153B91620E67A3200AD3B6F /* SessionStore.swift in Sources */,
+				0153B90920E67A1400AD3B6F /* AppError.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		01DBF23E20B6FC1600DCEF1B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -486,6 +620,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		0153B8FF20E6784F00AD3B6F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01DBF24120B6FC1600DCEF1B /* SwiftTemplate */;
+			targetProxy = 0153B8FE20E6784F00AD3B6F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		01DBF24920B6FC1600DCEF1B /* Welcome.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -498,6 +640,82 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0153B90020E6784F00AD3B6F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 756E55D1922A8F3DD71FF159 /* Pods-SwiftTemplate.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6DDUMFFKWF;
+				INFOPLIST_FILE = SwiftTemplateTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.klika.SwiftTemplateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftTemplate.app/SwiftTemplate";
+			};
+			name = Debug;
+		};
+		0153B90120E6784F00AD3B6F /* TestDebug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B6DFC66CBB858F8E994D560 /* Pods-SwiftTemplate.testdebug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6DDUMFFKWF;
+				INFOPLIST_FILE = SwiftTemplateTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.klika.SwiftTemplateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftTemplate.app/SwiftTemplate";
+			};
+			name = TestDebug;
+		};
+		0153B90220E6784F00AD3B6F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B7D566428142B806D05103C /* Pods-SwiftTemplate.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6DDUMFFKWF;
+				INFOPLIST_FILE = SwiftTemplateTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.klika.SwiftTemplateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftTemplate.app/SwiftTemplate";
+			};
+			name = Release;
+		};
+		0153B90320E6784F00AD3B6F /* TestRelease */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BCC7BF6F934F1CDB0B8D3136 /* Pods-SwiftTemplate.testrelease.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6DDUMFFKWF;
+				INFOPLIST_FILE = SwiftTemplateTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.klika.SwiftTemplateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftTemplate.app/SwiftTemplate";
+			};
+			name = TestRelease;
+		};
 		01DBF25220B6FC1600DCEF1B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01DBF26420B7024A00DCEF1B /* Production.xcconfig */;
@@ -795,6 +1013,17 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0153B90420E6784F00AD3B6F /* Build configuration list for PBXNativeTarget "SwiftTemplateTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0153B90020E6784F00AD3B6F /* Debug */,
+				0153B90120E6784F00AD3B6F /* TestDebug */,
+				0153B90220E6784F00AD3B6F /* Release */,
+				0153B90320E6784F00AD3B6F /* TestRelease */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		01DBF23D20B6FC1600DCEF1B /* Build configuration list for PBXProject "SwiftTemplate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

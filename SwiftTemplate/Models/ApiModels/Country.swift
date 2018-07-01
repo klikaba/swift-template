@@ -11,7 +11,8 @@ import ObjectMapper
 
 class Country: Mappable {
 
-    required public init?(map: Map) {}
+    required public init?(map: Map) {
+    }
 
     // swiftlint:disable:next identifier_name
     var id: String = ""
