@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
+import ReactiveKit
+import Bond
 
 class LoginViewController: AppViewControler<LoginViewModel> {
 
@@ -16,26 +16,20 @@ class LoginViewController: AppViewControler<LoginViewModel> {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    func onLoginSucceed() {
-        self.showError(error: AppError(code: -1, message: "Login ok"))
-    }
-
-    // MARK: Binding interface
     override func bindViewModel() {
         super.bindViewModel()
-        // Input
-        usernameTextField.rx.text.orEmpty.bind(to: viewModel.username).disposed(by: disposeBag)
-        passwordTextField.rx.text.orEmpty.bind(to: viewModel.password).disposed(by: disposeBag)
 
-        // Output
-        viewModel.isLoginEnabled.bind(to: loginButton.rx.isEnabled).disposed(by: disposeBag)
-        viewModel.loginCompletion.asObservable().subscribe(onNext: { error in
-            print("DONE \(String(describing: error))")
-        }).disposed(by: disposeBag)
+        viewModel.onLoginCompleted = onLoginCompleted
+
+        // Input bind
+        viewModel.username.bidirectionalBind(to: usernameTextField.reactive.text)
+        viewModel.password.bidirectionalBind(to: passwordTextField.reactive.text)
+    }
+
+    func onLoginCompleted(_ error: ApiError?) {
+        if error == nil {
+            LoginNavigator().goToHome(context: self)
+        }
     }
 
     @IBAction func onLoginClicked(_ sender: Any) {

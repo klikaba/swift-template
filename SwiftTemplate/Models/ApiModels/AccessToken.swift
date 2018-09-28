@@ -8,9 +8,19 @@
 
 import ObjectMapper
 
-class AccessToken: Mappable {
+class BaseResponse: Mappable {
+    var error: String = ""
+    var errorDescription: String = ""
+
     required public init?(map: Map) {}
 
+    func mapping(map: Map) {
+        error <- map["error"]
+        errorDescription <- map["error_description"]
+    }
+}
+
+class AccessToken: BaseResponse {
     var accessToken: String = ""
     var refreshToken: String = ""
     var tokenType: String = ""
@@ -18,7 +28,12 @@ class AccessToken: Mappable {
     var createdAt: Int = -1
     var userId: Int = -1
 
-    func mapping(map: Map) {
+    required public init?(map: Map) {
+        super.init(map: map)
+    }
+
+    override func mapping(map: Map) {
+        super.mapping(map: map)
         accessToken <- map["access_token"]
         refreshToken <- map["refresh_token"]
         tokenType <- map["token_type"]

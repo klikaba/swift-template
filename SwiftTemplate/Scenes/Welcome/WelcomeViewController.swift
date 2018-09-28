@@ -12,6 +12,18 @@ class WelcomeViewController: AppViewControler<WelcomeViewModel> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        viewModel.checkLoginStatus()
+    }
+
+    override func bindViewModel() {
+        viewModel.onLoginStatus = onLoginStatus
+    }
+
+    func onLoginStatus(loggedIn: Bool) {
+        if loggedIn {
+            WelcomeNavigator().goToHome(context: self)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

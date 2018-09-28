@@ -17,14 +17,14 @@ class CountriesApiClient: ApiClient {
                                       "password": password,
                                       "client_id": AppConfiguration.sharedInstance().apiClient,
                                       "client_secret": AppConfiguration.sharedInstance().apiSecret]
-        Alamofire.request(buildUrl("/oauth/token"), method: .post, parameters: parameters)
+        Alamofire.request(buildUrl("/oauth/token"), method: .post, parameters: parameters).validate()
             .responseObject { (response: DataResponse<AccessToken>) in
                 callback(response.value, ApiError.fromDataResponse(response: response))
             }
     }
 
     func countries(callback: @escaping (_ countries: Countries?, _ error: ApiError?) -> Void) {
-        ApiClient.sessionManager.request(buildUrl("/api/v1/countries"))
+        ApiClient.sessionManager.request(buildUrl("/api/v1/countries")).validate()
             .responseObject { (response: DataResponse<Countries>) in
                 callback(response.value, ApiError.fromDataResponse(response: response))
             }

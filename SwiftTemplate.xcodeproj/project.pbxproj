@@ -23,7 +23,7 @@
 		018A1EA020CABE0A00BDC03D /* WelcomeNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018A1E9F20CABE0A00BDC03D /* WelcomeNavigator.swift */; };
 		018A1EA420CABF6B00BDC03D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 018A1EA320CABF6B00BDC03D /* Login.storyboard */; };
 		018A1EA620CABF9700BDC03D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018A1EA520CABF9700BDC03D /* LoginViewController.swift */; };
-		019A889620BFF6AE0096C6C0 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019A889520BFF6AE0096C6C0 /* LoginService.swift */; };
+		019A889620BFF6AE0096C6C0 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019A889520BFF6AE0096C6C0 /* LoginRepository.swift */; };
 		01A43EBF20BF35970068B0EC /* OAuth2Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A43EBE20BF35970068B0EC /* OAuth2Handler.swift */; };
 		01D8AC8720BC89E900D10081 /* CountriesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D8AC8620BC89E900D10081 /* CountriesAPIClient.swift */; };
 		01D8AC8920BC8E7600D10081 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D8AC8820BC8E7600D10081 /* ApiClient.swift */; };
@@ -35,6 +35,13 @@
 		01DBF24820B6FC1600DCEF1B /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DBF24720B6FC1600DCEF1B /* WelcomeViewController.swift */; };
 		01DBF24B20B6FC1600DCEF1B /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01DBF24920B6FC1600DCEF1B /* Welcome.storyboard */; };
 		01DBF24D20B6FC1600DCEF1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01DBF24C20B6FC1600DCEF1B /* Assets.xcassets */; };
+		01DF1C8E20E8D46F005CE550 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01DF1C8D20E8D46F005CE550 /* Home.storyboard */; };
+		01DF1C9020E8D48C005CE550 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DF1C8F20E8D48C005CE550 /* HomeViewController.swift */; };
+		01DF1C9220E8D4AD005CE550 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DF1C9120E8D4AD005CE550 /* HomeViewModel.swift */; };
+		01DF1C9420E8D5BA005CE550 /* LoginNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DF1C9320E8D5BA005CE550 /* LoginNavigator.swift */; };
+		01DF1C9620E8D7B2005CE550 /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DF1C9520E8D7B2005CE550 /* AppStoryboard.swift */; };
+		01DF1C9820E8D7FA005CE550 /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DF1C9720E8D7FA005CE550 /* UIViewController+Storyboard.swift */; };
+		01DF1C9A20E8DFC6005CE550 /* CountriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DF1C9920E8DFC6005CE550 /* CountriesRepository.swift */; };
 		4A6B90B8C7C875A521EB10BE /* Pods_SwiftTemplate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF1403356DFE7622A02C2C8 /* Pods_SwiftTemplate.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +62,7 @@
 		018A1E9F20CABE0A00BDC03D /* WelcomeNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeNavigator.swift; sourceTree = "<group>"; };
 		018A1EA320CABF6B00BDC03D /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		018A1EA520CABF9700BDC03D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		019A889520BFF6AE0096C6C0 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		019A889520BFF6AE0096C6C0 /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		01A43EBE20BF35970068B0EC /* OAuth2Handler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Handler.swift; sourceTree = "<group>"; };
 		01D8AC8620BC89E900D10081 /* CountriesAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesAPIClient.swift; sourceTree = "<group>"; };
 		01D8AC8820BC8E7600D10081 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
@@ -71,6 +78,13 @@
 		01DBF25120B6FC1600DCEF1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01DBF26320B700DF00DCEF1B /* Test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Test.xcconfig; sourceTree = "<group>"; };
 		01DBF26420B7024A00DCEF1B /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		01DF1C8D20E8D46F005CE550 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		01DF1C8F20E8D48C005CE550 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		01DF1C9120E8D4AD005CE550 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		01DF1C9320E8D5BA005CE550 /* LoginNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNavigator.swift; sourceTree = "<group>"; };
+		01DF1C9520E8D7B2005CE550 /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
+		01DF1C9720E8D7FA005CE550 /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
+		01DF1C9920E8DFC6005CE550 /* CountriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesRepository.swift; sourceTree = "<group>"; };
 		1B7D566428142B806D05103C /* Pods-SwiftTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTemplate.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftTemplate/Pods-SwiftTemplate.release.xcconfig"; sourceTree = "<group>"; };
 		3B6DFC66CBB858F8E994D560 /* Pods-SwiftTemplate.testdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTemplate.testdebug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftTemplate/Pods-SwiftTemplate.testdebug.xcconfig"; sourceTree = "<group>"; };
 		6EF1403356DFE7622A02C2C8 /* Pods_SwiftTemplate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftTemplate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				012C422120B711A3007EC314 /* AppConfiguration.swift */,
+				01DF1C9720E8D7FA005CE550 /* UIViewController+Storyboard.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -133,13 +148,14 @@
 			path = DBModels;
 			sourceTree = "<group>";
 		};
-		012C423220B718FA007EC314 /* Services */ = {
+		012C423220B718FA007EC314 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				019A889520BFF6AE0096C6C0 /* LoginService.swift */,
 				019A889320BFF5E80096C6C0 /* Session */,
+				019A889520BFF6AE0096C6C0 /* LoginRepository.swift */,
+				01DF1C9920E8DFC6005CE550 /* CountriesRepository.swift */,
 			);
-			path = Services;
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		012C423720B7192A007EC314 /* DAO */ = {
@@ -179,6 +195,7 @@
 			children = (
 				0150F57D20CA7CE40017F90F /* AppViewController.swift */,
 				0150F57F20CA7EC30017F90F /* AppViewModel.swift */,
+				01DF1C9520E8D7B2005CE550 /* AppStoryboard.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -224,6 +241,7 @@
 			children = (
 				018A1EA520CABF9700BDC03D /* LoginViewController.swift */,
 				016FB75D20CACCE400946025 /* LoginViewModel.swift */,
+				01DF1C9320E8D5BA005CE550 /* LoginNavigator.swift */,
 				018A1EA320CABF6B00BDC03D /* Login.storyboard */,
 			);
 			path = Login;
@@ -239,6 +257,9 @@
 		01A794FA20CA6C0500A3627F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				01DF1C8F20E8D48C005CE550 /* HomeViewController.swift */,
+				01DF1C9120E8D4AD005CE550 /* HomeViewModel.swift */,
+				01DF1C8D20E8D46F005CE550 /* Home.storyboard */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -278,7 +299,7 @@
 				012C422B20B71705007EC314 /* Models */,
 				012C423720B7192A007EC314 /* DAO */,
 				012C423820B71931007EC314 /* Networking */,
-				012C423220B718FA007EC314 /* Services */,
+				012C423220B718FA007EC314 /* Repositories */,
 				012C422820B716AD007EC314 /* Components */,
 				012C424720B723AB007EC314 /* Scenes */,
 				012C422020B71192007EC314 /* Utils */,
@@ -381,6 +402,7 @@
 			files = (
 				018A1EA420CABF6B00BDC03D /* Login.storyboard in Resources */,
 				012C422720B71493007EC314 /* .swiftlint.yml in Resources */,
+				01DF1C8E20E8D46F005CE550 /* Home.storyboard in Resources */,
 				01DBF24D20B6FC1600DCEF1B /* Assets.xcassets in Resources */,
 				016FB75C20CACB7F00946025 /* LaunchScreen.storyboard in Resources */,
 				01DBF24B20B6FC1600DCEF1B /* Welcome.storyboard in Resources */,
@@ -412,21 +434,23 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftTemplate/Pods-SwiftTemplate-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Bond/Bond.framework",
+				"${BUILT_PRODUCTS_DIR}/Differ/Differ.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveKit/ReactiveKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bond.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differ.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -461,14 +485,18 @@
 				016FB75E20CACCE400946025 /* LoginViewModel.swift in Sources */,
 				012C423A20B71961007EC314 /* CountryDAO.swift in Sources */,
 				018A1E9E20CABADE00BDC03D /* WelcomeViewModel.swift in Sources */,
+				01DF1C9220E8D4AD005CE550 /* HomeViewModel.swift in Sources */,
 				012C422220B711A3007EC314 /* AppConfiguration.swift in Sources */,
+				01DF1C9420E8D5BA005CE550 /* LoginNavigator.swift in Sources */,
 				0150F58020CA7EC30017F90F /* AppViewModel.swift in Sources */,
 				0167BD9A20C0102300F44946 /* ModelMapper.swift in Sources */,
 				012C422F20B71743007EC314 /* DBCountry.swift in Sources */,
 				01D8AC9020BCB1D700D10081 /* AccessToken.swift in Sources */,
+				01DF1C9620E8D7B2005CE550 /* AppStoryboard.swift in Sources */,
 				01DBF24820B6FC1600DCEF1B /* WelcomeViewController.swift in Sources */,
 				0150F57E20CA7CE40017F90F /* AppViewController.swift in Sources */,
-				019A889620BFF6AE0096C6C0 /* LoginService.swift in Sources */,
+				019A889620BFF6AE0096C6C0 /* LoginRepository.swift in Sources */,
+				01DF1C9020E8D48C005CE550 /* HomeViewController.swift in Sources */,
 				018A1EA620CABF9700BDC03D /* LoginViewController.swift in Sources */,
 				01D8AC8720BC89E900D10081 /* CountriesAPIClient.swift in Sources */,
 				01DBF24620B6FC1600DCEF1B /* AppDelegate.swift in Sources */,
@@ -480,7 +508,9 @@
 				01D8AC8C20BC8F9200D10081 /* AppError.swift in Sources */,
 				0167BD9C20C0102C00F44946 /* CountryMapper.swift in Sources */,
 				012C423120B7175B007EC314 /* Country.swift in Sources */,
+				01DF1C9A20E8DFC6005CE550 /* CountriesRepository.swift in Sources */,
 				01D8AC8920BC8E7600D10081 /* ApiClient.swift in Sources */,
+				01DF1C9820E8D7FA005CE550 /* UIViewController+Storyboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

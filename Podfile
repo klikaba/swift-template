@@ -13,6 +13,5 @@ target 'SwiftTemplate' do
   pod 'ObjectMapper'
   pod 'RealmSwift'
   pod 'AppCenter'
-  pod 'RxSwift', '~> 4.0'
-  pod 'RxCocoa', '~> 4.0'
+  pod 'Bond'
 end

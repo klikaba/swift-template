@@ -7,31 +7,24 @@
 //
 
 import Foundation
-import RxSwift
+import ReactiveKit
+import Bond
 
 class LoginViewModel: AppViewModel {
     // Input
-    var username = Variable<String>("")
-    var password = Variable<String>("")
+    var username = Property<String?>("")
+    var password = Property<String?>("")
 
     // Output
-    var loginCompletion = BehaviorSubject<AppError?>(value: nil)
-
-    var isLoginEnabled: Observable<Bool> {
-        return Observable.combineLatest(self.username.asObservable(),
-                                        self.password.asObservable()) { (username, password) in
-            return username.count > 0 && password.count > 0
-        }
-
-    }
+    var onLoginCompleted: ((_ error: ApiError?) -> Void)?
 
     func doLogin() {
-        LoginService().signIn(username: username.value,
-                              password: password.value,
-                              loginCompletionHandler: onLoginCompleted(_:))
+        let loginRepo = LoginRepository(loginCompletionHandler: onLoginCompletedHandler)
+        loginRepo.signIn(username: username.value!, password: password.value!)
     }
 
-    func onLoginCompleted(_ error: ApiError?) {
-        loginCompletion.onNext(error)
+    func onLoginCompletedHandler(_ error: ApiError?) {
+        self.error.value = error
+        onLoginCompleted?(error)
     }
 }

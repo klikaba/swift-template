@@ -7,10 +7,11 @@
 //
 
 import Foundation
-import RxSwift
+import Bond
+import ReactiveKit
 
 class AppViewModel {
-    var error = Variable<AppError?>(nil)
+    var error = Property<AppError?>(nil)
 
     required init() {
     }

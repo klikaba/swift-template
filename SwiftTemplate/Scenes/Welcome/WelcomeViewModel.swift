@@ -9,4 +9,9 @@
 import Foundation
 
 class WelcomeViewModel: AppViewModel {
+    var onLoginStatus: ((_ isLogedIn: Bool) -> Void)?
+
+    func checkLoginStatus() {
+        onLoginStatus?(SessionStore.get() != nil)
+    }
 }

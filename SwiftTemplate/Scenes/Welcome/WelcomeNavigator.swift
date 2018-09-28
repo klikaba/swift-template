@@ -10,10 +10,13 @@ import UIKit
 
 class WelcomeNavigator {
     func goToLogin(context: UIViewController) {
-        if let viewController = UIStoryboard(name: "Login", bundle: nil)
-            .instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
-            context.navigationController?.setNavigationBarHidden(false, animated: false)
-            context.navigationController?.pushViewController(viewController, animated: true)
-        }
+        let loginViewController = LoginViewController.instantiateFromAppStoryboard(appStoryboard: .login)
+        context.navigationController?.setNavigationBarHidden(false, animated: false)
+        context.navigationController?.pushViewController(loginViewController, animated: true)
+    }
+
+    func goToHome(context: UIViewController) {
+        let homeViewController = HomeViewController.instantiateFromAppStoryboard(appStoryboard: .home)
+        context.present(homeViewController, animated: false)
     }
 }

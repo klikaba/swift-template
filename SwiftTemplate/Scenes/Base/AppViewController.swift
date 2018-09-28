@@ -7,21 +7,19 @@
 //
 
 import UIKit
-import RxSwift
 
 class AppViewControler<TViewModel: AppViewModel>: UIViewController {
 
     var viewModel: TViewModel = TViewModel()
-    var disposeBag: DisposeBag = DisposeBag()
 
     override func viewDidLoad() {
         bindViewModel()
     }
 
     func bindViewModel() {
-        viewModel.error.asObservable().subscribe(onNext: { error in
+        _ = viewModel.error.observeNext { (error) in
             self.showError(error: error)
-        }).disposed(by: disposeBag)
+        }
     }
 
     func showError(error: AppError?) {

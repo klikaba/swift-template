@@ -10,13 +10,15 @@ import Foundation
 
 typealias LoginServiceLoginCompletion = (_ error: ApiError?) -> Void
 
-class LoginService {
+class LoginRepository {
 
     var loginCompletionHandler: LoginServiceLoginCompletion?
 
-    func signIn(username: String, password: String,
-                loginCompletionHandler: @escaping LoginServiceLoginCompletion) {
+    init(loginCompletionHandler: LoginServiceLoginCompletion?) {
         self.loginCompletionHandler = loginCompletionHandler
+    }
+
+    func signIn(username: String, password: String) {
         CountriesApiClient().signIn(username: username,
                                     password: password,
                                     callback: onSignInCompleted)
