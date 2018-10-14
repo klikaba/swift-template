@@ -10,23 +10,23 @@ import Foundation
 
 class WelcomeViewModel: AppViewModel {
     var onLoginStatus: ((_ isLogedIn: Bool) -> Void)?
-    private let navigator: WelcomeNavigator
+    private let welcomeNavigator: WelcomeNavigator
 
-    init(navigator: WelcomeNavigator) {
-        self.navigator = navigator
+    init(welcomeNavigator: WelcomeNavigator) {
+        self.welcomeNavigator = welcomeNavigator
     }
 
     func checkLoginStatus() {
         if SessionStore.get() != nil {
-            navigator.goToHome()
+            welcomeNavigator.goToHome()
         }
     }
 
     func onLoginClicked() {
-        navigator.goToLogin()
+        welcomeNavigator.goToLogin()
     }
 
     func onRegisterClicked() {
-        navigator.goToRegistration()
+        welcomeNavigator.goToRegistration()
     }
 }

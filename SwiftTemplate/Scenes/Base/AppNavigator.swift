@@ -11,7 +11,7 @@ class AppNavigator {
         let welcomeViewController = WelcomeViewController.instantiateFromAppStoryboard(appStoryboard:
                                                                                        .welcome)
         let welcomeNavigator = WelcomeNavigator(navigationController: navigationController)
-        welcomeViewController.viewModel = WelcomeViewModel(navigator: welcomeNavigator)
+        welcomeViewController.viewModel = WelcomeViewModel(welcomeNavigator: welcomeNavigator)
         navigationController.setNavigationBarHidden(true, animated: false)
         navigationController.pushViewController(welcomeViewController, animated: true)
     }
@@ -20,7 +20,7 @@ class AppNavigator {
         let tabBarController = UITabBarController()
         let countriesViewController = CountriesViewController.instantiateFromAppStoryboard(appStoryboard:
                                                                                            .home)
-        countriesViewController.viewModel = CountriesViewModelFactory().create()
+        countriesViewController.viewModel = CountriesViewModelFactory.create()
         countriesViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 1)
 
         let userViewController = UserViewController.instantiateFromAppStoryboard(appStoryboard: .home)
@@ -35,7 +35,7 @@ class AppNavigator {
     func goToLogin() {
         let loginViewController = LoginViewController.instantiateFromAppStoryboard(appStoryboard: .login)
         let loginNavigator = LoginNavigator(navigationController: navigationController)
-        loginViewController.viewModel = LoginViewModelFactory(navigator: loginNavigator).create()
+        loginViewController.viewModel = LoginViewModelFactory.create(with: loginNavigator)
         navigationController.setNavigationBarHidden(false, animated: false)
         navigationController.pushViewController(loginViewController, animated: true)
     }

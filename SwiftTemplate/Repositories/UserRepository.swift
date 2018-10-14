@@ -10,28 +10,28 @@ import Foundation
 typealias UserActionCompletion = (_ error: ApiError?) -> Void
 
 class UserRepository {
-    var database: UserDAO
-    var network: UserApiClient
-    var mapper: UserMapper
+    var userDAO: UserDAO
+    var userAPIClient: UserApiClient
+    var userMapper: UserMapper
 
     var userActionCompletionHandler: UserActionCompletion?
 
-    init(database: UserDAO, network: UserApiClient, mapper: UserMapper) {
-        self.database = database
-        self.network = network
-        self.mapper = mapper
+    init(userDAO: UserDAO, userAPIClient: UserApiClient, userMapper: UserMapper) {
+        self.userDAO = userDAO
+        self.userAPIClient = userAPIClient
+        self.userMapper = userMapper
     }
 
     func create(username: String, password: String) {
-        network.create(username: username, password: password, callback: onUserLoaded)
+        userAPIClient.create(username: username, password: password, callback: onUserLoaded)
     }
 
     func refreshUser(identifier: String) {
-        network.getUser(identifier: identifier, callback: onUserLoaded)
+        userAPIClient.getUser(identifier: identifier, callback: onUserLoaded)
     }
 
     func getUser(identifier: String) -> DBUser? {
-        return database.load(forPrimaryKey: identifier)
+        return userDAO.load(forPrimaryKey: identifier)
     }
 
     func onUserLoaded(_ user: User?, _ error: ApiError?) {
@@ -47,7 +47,7 @@ class UserRepository {
     }
 
     fileprivate func saveToDb(user: User) {
-        let dbUser = mapper.toDatabase(apiModel: user)
-        database.save(dbUser)
+        let dbUser = userMapper.toDatabase(apiModel: user)
+        userDAO.save(dbUser)
     }
 }

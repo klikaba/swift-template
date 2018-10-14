@@ -10,11 +10,12 @@ import UIKit
 
 class WelcomeNavigator: AppNavigator {
     func goToRegistration() {
-        let registrationVC = RegistrationViewController.instantiateFromAppStoryboard(appStoryboard:
-                                                                                     .registration)
+        let registrationViewController = RegistrationViewController
+            .instantiateFromAppStoryboard(appStoryboard: .registration)
         let registrationNavigator = RegistrationNavigator(navigationController: navigationController)
-        registrationVC.viewModel = RegistrationViewModelFactory(navigator: registrationNavigator).create()
+        registrationViewController.viewModel = RegistrationViewModelFactory
+            .create(with: registrationNavigator)
         navigationController.setNavigationBarHidden(false, animated: false)
-        navigationController.pushViewController(registrationVC, animated: true)
+        navigationController.pushViewController(registrationViewController, animated: true)
     }
 }

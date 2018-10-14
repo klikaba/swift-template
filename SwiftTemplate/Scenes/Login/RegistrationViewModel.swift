@@ -11,28 +11,28 @@ import ReactiveKit
 import Bond
 
 class RegistrationViewModel: AppViewModel {
-    let registrationRepo: UserRepository!
-    let navigator: RegistrationNavigator!
+    let userRepository: UserRepository!
+    let registrationNavigator: RegistrationNavigator!
 
     // Input
     var username = Property<String?>("")
     var password = Property<String?>("")
 
-    init(registrationRepo: UserRepository, navigator: RegistrationNavigator) {
-        self.registrationRepo = registrationRepo
-        self.navigator = navigator
+    init(userRepository: UserRepository, registrationNavigator: RegistrationNavigator) {
+        self.userRepository = userRepository
+        self.registrationNavigator = registrationNavigator
         super.init()
-        self.registrationRepo.userActionCompletionHandler = onUserActionCompletedHandler
+        self.userRepository.userActionCompletionHandler = onUserActionCompletedHandler
     }
 
     func doRegistration() {
-        registrationRepo.create(username: username.value!, password: password.value!)
+        userRepository.create(username: username.value!, password: password.value!)
     }
 
     func onUserActionCompletedHandler(_ error: ApiError?) {
         self.error.value = error
         if error == nil {
-            navigator.goToLogin()
+            registrationNavigator.goToLogin()
         }
     }
 }

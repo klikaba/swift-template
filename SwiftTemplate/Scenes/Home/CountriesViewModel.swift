@@ -11,27 +11,27 @@ import RealmSwift
 
 class CountriesViewModel: AppViewModel {
     var countries: [DBCountry]?
-    var countriesRepo: CountriesRepository!
+    var countriesRepository: CountriesRepository!
     var numberOfRows: Int {
         return countries?.count ?? 0
     }
 
     var onRefreshCompleted: ((_ error: ApiError?) -> Void)?
 
-    init(countriesRepo: CountriesRepository) {
-        self.countriesRepo = countriesRepo
+    init(countriesRepository: CountriesRepository) {
+        self.countriesRepository = countriesRepository
         super.init()
-        countriesRepo.refreshCompletionHandler = refreshCompletionHandler
+        countriesRepository.refreshCompletionHandler = refreshCompletionHandler
     }
 
     func refreshCountries() {
-        countriesRepo.refreshCountries()
+        countriesRepository.refreshCountries()
     }
 
     func refreshCompletionHandler(_ error: ApiError?) {
         self.error.value = error
         if error == nil {
-            countries = Array(countriesRepo.getCountries())
+            countries = Array(countriesRepository.getCountries())
         }
         onRefreshCompleted?(error)
     }

@@ -1,13 +1,7 @@
 class RegistrationViewModelFactory {
-    private let viewModel: RegistrationViewModel
-    private let repository: UserRepository
-
-    init(navigator: RegistrationNavigator) {
-        self.repository = UserRepositoryFactory().create()
-        self.viewModel = RegistrationViewModel(registrationRepo: repository, navigator: navigator)
-    }
-
-    func create() -> RegistrationViewModel {
-        return viewModel
+    static func create(with registrationNavigator: RegistrationNavigator) -> RegistrationViewModel {
+        let userRepository = UserRepositoryFactory.create()
+        return RegistrationViewModel(userRepository: userRepository,
+                                     registrationNavigator: registrationNavigator)
     }
 }
