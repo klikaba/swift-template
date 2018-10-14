@@ -1,20 +1,16 @@
 //
-//  LoginViewController.swift
+//  RegistrationViewController.swift
 //  SwiftTemplate
 //
-//  Created by zaharijepasalic on 6/8/18.
+//  Created by Haris Dizdarevic on 08/10/2018.
 //  Copyright © 2018 Klika d.o.o. Sarajevo. All rights reserved.
 //
 
 import UIKit
-import ReactiveKit
-import Bond
 
-class LoginViewController: AppViewController<LoginViewModel> {
-
+class RegistrationViewController: AppViewController<RegistrationViewModel> {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var loginButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +24,7 @@ class LoginViewController: AppViewController<LoginViewModel> {
         viewModel.password.bidirectionalBind(to: passwordTextField.reactive.text)
     }
 
-    @IBAction func onLoginClicked(_ sender: Any) {
-        viewModel.doLogin()
+    @IBAction func onRegisterClicked(_ sender: Any) {
+        viewModel.doRegistration()
     }
 }

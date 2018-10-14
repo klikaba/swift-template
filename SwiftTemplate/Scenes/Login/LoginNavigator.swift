@@ -8,9 +8,6 @@
 
 import UIKit
 
-class LoginNavigator {
-    func goToHome(context: UIViewController) {
-        let homeViewController = HomeViewController.instantiateFromAppStoryboard(appStoryboard: .home)
-        context.present(homeViewController, animated: false)
-    }
+class LoginNavigator: AppNavigator {
+
 }

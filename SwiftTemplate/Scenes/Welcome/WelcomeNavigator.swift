@@ -8,15 +8,13 @@
 
 import UIKit
 
-class WelcomeNavigator {
-    func goToLogin(context: UIViewController) {
-        let loginViewController = LoginViewController.instantiateFromAppStoryboard(appStoryboard: .login)
-        context.navigationController?.setNavigationBarHidden(false, animated: false)
-        context.navigationController?.pushViewController(loginViewController, animated: true)
-    }
-
-    func goToHome(context: UIViewController) {
-        let homeViewController = HomeViewController.instantiateFromAppStoryboard(appStoryboard: .home)
-        context.present(homeViewController, animated: false)
+class WelcomeNavigator: AppNavigator {
+    func goToRegistration() {
+        let registrationVC = RegistrationViewController.instantiateFromAppStoryboard(appStoryboard:
+                                                                                     .registration)
+        let registrationNavigator = RegistrationNavigator(navigationController: navigationController)
+        registrationVC.viewModel = RegistrationViewModelFactory(navigator: registrationNavigator).create()
+        navigationController.setNavigationBarHidden(false, animated: false)
+        navigationController.pushViewController(registrationVC, animated: true)
     }
 }

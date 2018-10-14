@@ -1,28 +1,28 @@
 PODS:
-  - Alamofire (4.7.2)
-  - AlamofireObjectMapper (5.0.0):
+  - Alamofire (4.7.3)
+  - AlamofireObjectMapper (5.1.0):
     - Alamofire (~> 4.1)
-    - ObjectMapper (~> 3.0)
-  - AppCenter (1.7.1):
-    - AppCenter/Analytics (= 1.7.1)
-    - AppCenter/Crashes (= 1.7.1)
-  - AppCenter/Analytics (1.7.1):
+    - ObjectMapper (~> 3.3)
+  - AppCenter (1.9.0):
+    - AppCenter/Analytics (= 1.9.0)
+    - AppCenter/Crashes (= 1.9.0)
+  - AppCenter/Analytics (1.9.0):
     - AppCenter/Core
-  - AppCenter/Core (1.7.1)
-  - AppCenter/Crashes (1.7.1):
+  - AppCenter/Core (1.9.0)
+  - AppCenter/Crashes (1.9.0):
     - AppCenter/Core
-  - Bond (6.8.3):
-    - Differ (~> 1.0)
+  - Bond (6.10.0):
+    - Differ (~> 1.2)
     - ReactiveKit (~> 3.9)
-  - Differ (1.2.3)
+  - Differ (1.3.0)
   - ObjectMapper (3.3.0)
   - ReactiveKit (3.9.6)
-  - Realm (3.7.4):
-    - Realm/Headers (= 3.7.4)
-  - Realm/Headers (3.7.4)
-  - RealmSwift (3.7.4):
-    - Realm (= 3.7.4)
-  - SwiftLint (0.26.0)
+  - Realm (3.11.0):
+    - Realm/Headers (= 3.11.0)
+  - Realm/Headers (3.11.0)
+  - RealmSwift (3.11.0):
+    - Realm (= 3.11.0)
+  - SwiftLint (0.27.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -47,17 +47,17 @@ SPEC REPOS:
     - SwiftLint
 
 SPEC CHECKSUMS:
-  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
-  AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
-  AppCenter: 53349f138e596f2514f7559bb50a7e6e55219f17
-  Bond: d6d25c0cb90459b9d27197251405c6db254da4cf
-  Differ: 061f3298ea9408494c43b530c44583e555884daf
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  AlamofireObjectMapper: 3395e698901d8b0e6f48b7d0c43bd47875325102
+  AppCenter: 3cf7b9387549e9703dab068793e404013e8c0cc1
+  Bond: 86b0a343dcb8c8ad18c8a31fc9faa2ba45280b30
+  Differ: 9fcee7602542d7c6484ce05a0faec1c11258ed63
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   ReactiveKit: 804d3093ad42dee0de19e42d4f7dcae9c14364b0
-  Realm: a469bb59e33f9926102ccaea4349822c53b9117e
-  RealmSwift: a45861b21c180f5cf0f122144b9759fa8dde3e9e
-  SwiftLint: f6b83e8d95ee1e91e11932d843af4fdcbf3fc764
+  Realm: 92f09a102692b96a9a10e9617f214f15c5ab85fc
+  RealmSwift: 5f0481cd658bb751c509314b964a35eaa264d2cf
+  SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
 
 PODFILE CHECKSUM: cd5c87545efe2fe37825a9a827e9b45f510a731d
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

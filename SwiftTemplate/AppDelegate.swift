@@ -17,9 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         MSAppCenter.start(AppConfiguration.sharedInstance().appCenterId,
                           withServices:[ MSAnalytics.self, MSCrashes.self ])
+        let navigationController = UINavigationController()
+        AppNavigator(navigationController: navigationController).goToWelcome()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
         return true
     }
 

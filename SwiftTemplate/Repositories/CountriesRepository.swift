@@ -12,19 +12,24 @@ import RealmSwift
 typealias CountriesServiceCompletion = (_ error: ApiError?) -> Void
 
 class CountriesRepository {
+    var database: CountryDAO
+    var network: CountriesApiClient
+    var mapper: CountryMapper
 
     var refreshCompletionHandler: CountriesServiceCompletion?
 
-    init(refreshCompletionHandler: CountriesServiceCompletion?) {
-        self.refreshCompletionHandler = refreshCompletionHandler
+    init(database: CountryDAO, network: CountriesApiClient, mapper: CountryMapper) {
+        self.database = database
+        self.network = network
+        self.mapper = mapper
     }
 
     func refreshCountries() {
-        CountriesApiClient().countries(callback: onCountriesLoaded)
+        network.countries(callback: onCountriesLoaded)
     }
 
     func getCountries() -> Results<DBCountry> {
-        return CountryDAO().loadAll()
+        return database.loadAll()
     }
 
     fileprivate func onCountriesLoaded(_ countries: Countries?, _ error: ApiError?) {
@@ -40,7 +45,7 @@ class CountriesRepository {
     }
 
     fileprivate func saveToDb(countries: Countries) {
-        let dbCountries = CountryMapper().toDatabaseArray(apiModels: countries.countries)
-        CountryDAO().save(dbCountries)
+        let dbCountries = mapper.toDatabaseArray(apiModels: countries.countries)
+        database.save(dbCountries)
     }
 }

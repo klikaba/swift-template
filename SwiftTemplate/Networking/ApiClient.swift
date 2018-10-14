@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import ObjectMapper
 
 class ApiClient {
     static let sessionManager: SessionManager = {
@@ -30,5 +31,16 @@ class ApiClient {
     func buildUrl(_ path: String) -> String {
         return "\(AppConfiguration.sharedInstance().serverProto):" +
                "//\(AppConfiguration.sharedInstance().serverUrl)\(path)"
+    }
+
+    func callApi<ApiModel: Mappable>(using method: HTTPMethod,
+                                     with parameters: [String: Any]?,
+                                     for path: String,
+                                     callback: @escaping (_ data: ApiModel?, _ error: ApiError?) -> Void) {
+        ApiClient.sessionManager.request(buildUrl(path), method: method, parameters: parameters).validate()
+            .responseObject { (response: DataResponse<ApiModel>) in
+                debugPrint(response)
+                callback(response.value, ApiError.fromDataResponse(response: response))
+        }
     }
 }
