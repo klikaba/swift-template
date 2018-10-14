@@ -9,15 +9,16 @@
 import Foundation
 import ObjectMapper
 
-class Country: Mappable {
+struct Country: Mappable {
 
-    required public init?(map: Map) {}
+    init?(map: Map) {
+    }
 
     // swiftlint:disable:next identifier_name
     var id: String = ""
     var name: String = ""
 
-    func mapping(map: Map) {
+    mutating func mapping(map: Map) {
         id <- map["code"]
         name <- map["name"]
     }

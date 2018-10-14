@@ -11,20 +11,29 @@ import ReactiveKit
 import Bond
 
 class LoginViewModel: AppViewModel {
+    let loginRepository: LoginRepository!
+    let loginNavigator: LoginNavigator
     // Input
     var username = Property<String?>("")
     var password = Property<String?>("")
 
     // Output
-    var onLoginCompleted: ((_ error: ApiError?) -> Void)?
+
+    init(loginRepository: LoginRepository, loginNavigator: LoginNavigator) {
+        self.loginRepository = loginRepository
+        self.loginNavigator = loginNavigator
+        super.init()
+        self.loginRepository.loginCompletionHandler = onLoginCompletedHandler
+    }
 
     func doLogin() {
-        let loginRepo = LoginRepository(loginCompletionHandler: onLoginCompletedHandler)
-        loginRepo.signIn(username: username.value!, password: password.value!)
+        loginRepository.signIn(username: username.value!, password: password.value!)
     }
 
     func onLoginCompletedHandler(_ error: ApiError?) {
         self.error.value = error
-        onLoginCompleted?(error)
+        if error == nil {
+            loginNavigator.goToHome()
+        }
     }
 }

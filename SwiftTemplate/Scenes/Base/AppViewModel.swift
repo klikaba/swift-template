@@ -13,6 +13,5 @@ import ReactiveKit
 class AppViewModel {
     var error = Property<AppError?>(nil)
 
-    required init() {
-    }
+    init() {}
 }

@@ -9,14 +9,14 @@
 import Foundation
 import ObjectMapper
 
-class Countries: Mappable {
+struct Countries: Mappable {
     var countries: [Country]
 
-    required public init?(map: Map) {
+    init?(map: Map) {
         countries = []
     }
 
-    func mapping(map: Map) {
+    mutating func mapping(map: Map) {
         countries <- map["countries"]
     }
 }

@@ -18,6 +18,9 @@ class OAuth2Handler: RequestAdapter, RequestRetrier {
     }()
 
     private let lock = NSLock()
+    private static let serverProto: String = "\(AppConfiguration.sharedInstance().serverProto)://"
+    private static let serverUrl: String = "\(AppConfiguration.sharedInstance().serverUrl)"
+    private let baseURLString: String = "\(serverProto)\(serverUrl)"
 
     private var isRefreshing = false
     private var requestsToRetry: [RequestRetryCompletion] = []
@@ -26,7 +29,6 @@ class OAuth2Handler: RequestAdapter, RequestRetrier {
     }
 
     func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
-        let baseURLString: String = AppConfiguration.sharedInstance().serverUrl
         if let urlString = urlRequest.url?.absoluteString, urlString.hasPrefix(baseURLString),
             let token = SessionStore.get() {
                 var urlRequest = urlRequest
@@ -68,16 +70,16 @@ class OAuth2Handler: RequestAdapter, RequestRetrier {
 
         isRefreshing = true
 
-        let urlString: String = "\(AppConfiguration.sharedInstance().serverUrl)/oauth/token"
+        let urlString: String = "\(baseURLString)/oauth/token"
         let token: AccessToken? = SessionStore.get()
         let parameters: [String: Any] = [
-            "access_token": token!.accessToken,
             "refresh_token": token!.refreshToken,
             "client_id": AppConfiguration.sharedInstance().apiClient,
+            "client_secret": AppConfiguration.sharedInstance().apiSecret,
             "grant_type": "refresh_token"
         ]
 
-        sessionManager.request(urlString, method: .post, parameters: parameters)
+        sessionManager.request(urlString, method: .post, parameters: parameters).validate()
             .responseObject { [weak self] (response: DataResponse<AccessToken>) in
                 guard let strongSelf = self else { return }
                 if response.result.isSuccess {

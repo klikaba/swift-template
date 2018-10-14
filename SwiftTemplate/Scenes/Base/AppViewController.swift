@@ -8,9 +8,9 @@
 
 import UIKit
 
-class AppViewControler<TViewModel: AppViewModel>: UIViewController {
+class AppViewController<TViewModel: AppViewModel>: UIViewController {
 
-    var viewModel: TViewModel = TViewModel()
+    var viewModel: TViewModel!
 
     override func viewDidLoad() {
         bindViewModel()

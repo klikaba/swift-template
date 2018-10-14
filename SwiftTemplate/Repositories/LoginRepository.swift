@@ -14,17 +14,13 @@ class LoginRepository {
 
     var loginCompletionHandler: LoginServiceLoginCompletion?
 
-    init(loginCompletionHandler: LoginServiceLoginCompletion?) {
-        self.loginCompletionHandler = loginCompletionHandler
-    }
-
     func signIn(username: String, password: String) {
         CountriesApiClient().signIn(username: username,
                                     password: password,
                                     callback: onSignInCompleted)
     }
 
-    private func onSignInCompleted(accessToken: AccessToken?, error: ApiError?) {
+    private func onSignInCompleted(_ accessToken: AccessToken?, _ error: ApiError?) {
         if let accessToken = accessToken {
             SessionStore.save(accessToken: accessToken)
         }
