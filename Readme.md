@@ -55,7 +55,7 @@ Simplify ViewController ViewModel binding using [Bond](https://github.com/Declar
 
 ### Quality gates
 
-This project will run static code analyser on every commit and.
+This project will run static code analyser on every commit.
 
 ### Static code analyser
 This template us using [SwiftLint](https://github.com/realm/SwiftLint) for static code analysis. All SwiftLint offenses are automatically tracked and prevented on every commit. This feature is handled by [Overcommit](https://github.com/brigade/overcommit) git hook manager.
