@@ -1,0 +1,4 @@
+PreCommit:
+  SwiftLint:
+    enabled: true
+    command: ["Pods/SwiftLint/swiftlint", "lint", "--strict"]
