@@ -15,7 +15,7 @@ class LoginRepository {
     var loginCompletionHandler: LoginServiceLoginCompletion?
 
     func signIn(username: String, password: String) {
-        CountriesApiClient().signIn(username: username,
+        UserApiClient().signIn(username: username,
                                     password: password,
                                     callback: onSignInCompleted)
     }
