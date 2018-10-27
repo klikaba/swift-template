@@ -1,6 +1,10 @@
 import UIKit
-
-class AppNavigator {
+protocol AppNavigatorProtocol {
+    func goToWelcome()
+    func goToHome()
+    func goToLogin()
+}
+class AppNavigator: AppNavigatorProtocol {
     let navigationController: UINavigationController
 
     init(navigationController: UINavigationController) {
