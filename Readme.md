@@ -1,6 +1,6 @@
 [![Build status](https://build.appcenter.ms/v0.1/apps/dec0333b-e254-4bc9-a2ce-65237640e84a/branches/dev/badge)](https://appcenter.ms)
 
-# Swift Temeplate
+# Swift Template
 
 This template provides starting point for Swift iOS app, following Klika quality guidelines,  with implemented authentication following OAuth2 standard.
 
