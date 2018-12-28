@@ -17,7 +17,6 @@ protocol CountriesApiClientProtocol {
 }
 
 class CountriesApiClient: ApiClient, CountriesApiClientProtocol {
-
     func countries(callback: @escaping CountriesCallback) {
         callApi(using: .get, with: nil, for: "/api/v1/countries", callback: callback)
     }
