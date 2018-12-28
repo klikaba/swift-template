@@ -11,14 +11,21 @@ import RealmSwift
 
 typealias CountriesServiceCompletion = (_ error: ApiError?) -> Void
 
-class CountriesRepository {
+protocol CountriesRepositoryProtocol {
+    func refreshCountries()
+    func getCountries() -> Results<DBCountry>
+}
+
+class CountriesRepository: CountriesRepositoryProtocol {
     var countryDAO: CountryDAO
-    var countriesAPIClient: CountriesApiClient
+    var countriesAPIClient: CountriesApiClientProtocol
     var countryMapper: CountryMapper
 
     var refreshCompletionHandler: CountriesServiceCompletion?
 
-    init(countryDAO: CountryDAO, countriesAPIClient: CountriesApiClient, countryMapper: CountryMapper) {
+    init(countryDAO: CountryDAO,
+         countriesAPIClient: CountriesApiClientProtocol,
+         countryMapper: CountryMapper) {
         self.countryDAO = countryDAO
         self.countriesAPIClient = countriesAPIClient
         self.countryMapper = countryMapper

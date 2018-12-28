@@ -30,7 +30,7 @@ class OAuth2Handler: RequestAdapter, RequestRetrier {
 
     func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
         if let urlString = urlRequest.url?.absoluteString, urlString.hasPrefix(baseURLString),
-            let token = SessionStore.get() {
+            let token = SessionStore.currentSession.get() {
                 var urlRequest = urlRequest
                 urlRequest.setValue("Bearer " + token.accessToken, forHTTPHeaderField: "Authorization")
                 return urlRequest
@@ -53,7 +53,7 @@ class OAuth2Handler: RequestAdapter, RequestRetrier {
                     strongSelf.lock.lock() ; defer { strongSelf.lock.unlock() }
 
                     if let token = accessTokenObj {
-                        SessionStore.save(accessToken: token)
+                        SessionStore.currentSession.save(accessToken: token)
                     }
 
                     strongSelf.requestsToRetry.forEach { $0(succeeded, 0.0) }
@@ -71,7 +71,7 @@ class OAuth2Handler: RequestAdapter, RequestRetrier {
         isRefreshing = true
 
         let urlString: String = "\(baseURLString)/oauth/token"
-        let token: AccessToken? = SessionStore.get()
+        let token: AccessToken? = SessionStore.currentSession.get()
         let parameters: [String: Any] = [
             "refresh_token": token!.refreshToken,
             "client_id": AppConfiguration.sharedInstance().apiClient,

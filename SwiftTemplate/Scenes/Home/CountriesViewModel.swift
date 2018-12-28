@@ -11,7 +11,7 @@ import RealmSwift
 
 class CountriesViewModel: AppViewModel {
     var countries: [DBCountry]?
-    var countriesRepository: CountriesRepository!
+    var countriesRepository: CountriesRepositoryProtocol!
     var numberOfRows: Int {
         return countries?.count ?? 0
     }

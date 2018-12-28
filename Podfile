@@ -14,4 +14,8 @@ target 'SwiftTemplate' do
   pod 'RealmSwift'
   pod 'AppCenter'
   pod 'Bond'
+
+  target 'SwiftTemplateTests' do
+      inherit! :search_paths
+  end
 end
