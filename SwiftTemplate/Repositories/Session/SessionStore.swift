@@ -8,6 +8,7 @@
 
 import Foundation
 import ObjectMapper
+
 protocol SessionStoreProtocol {
     func save(accessToken: AccessToken)
     func get() -> AccessToken?
