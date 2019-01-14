@@ -61,7 +61,7 @@ This project will run static code analyser on every commit.
 This template us using [SwiftLint](https://github.com/realm/SwiftLint) for static code analysis. All SwiftLint offenses are automatically tracked and prevented on every commit. This feature is handled by [Overcommit](https://github.com/brigade/overcommit) git hook manager.
 
 ### Testing
-TBD
+For testing we are using XCTest framework and all tests are executed when pull request is made against dev branch.
 
 ### Continuous Integration
 AppCentar
