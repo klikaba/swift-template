@@ -13,7 +13,7 @@ PRODUCT_BUNDLE_BUILD = 1
 IS_APP_ICON = AppIconTest
 
 // Configuration
-appCenterId = ad286b58-d423-4425-9a84-059f04eae8e5
+appCenterId = 4d3bd120-f1ef-4e31-909a-ce0587e170e6
 
 serverProto = http
 serverUrl = localhost:3000
