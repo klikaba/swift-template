@@ -9,22 +9,29 @@
 import Foundation
 import ObjectMapper
 
-// Change from memory store to something persistable : Local or Realm
-class SessionStore {
-    static let accessTokenKey: String = "ACCESS_TOKEN_JSON"
+protocol SessionStoreProtocol {
+    func save(accessToken: AccessToken)
+    func get() -> AccessToken?
+    func clear()
+}
 
-    static func save(accessToken: AccessToken) {
+// Change from memory store to something persistable : Local or Realm
+class SessionStore: SessionStoreProtocol {
+    let accessTokenKey: String = "ACCESS_TOKEN_JSON"
+    static let currentSession = SessionStore()
+
+    func save(accessToken: AccessToken) {
         UserDefaults.standard.set(accessToken.toJSONString(), forKey: accessTokenKey)
     }
 
-    static func get() -> AccessToken? {
+    func get() -> AccessToken? {
         if let accessTokenJSON: String = UserDefaults.standard.value(forKey: accessTokenKey) as? String {
             return Mapper<AccessToken>().map(JSONString: accessTokenJSON)
         }
         return nil
     }
 
-    static func clear() {
+    func clear() {
         UserDefaults.standard.removeObject(forKey: accessTokenKey)
     }
 }

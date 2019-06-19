@@ -8,13 +8,20 @@
 import Alamofire
 import AlamofireObjectMapper
 
-class CountriesApiClient: ApiClient {
+typealias CountriesCallback = (_ data: Countries?, _ error: ApiError?) -> Void
+typealias CountryCallback = (_ data: Country?, _ error: ApiError?) -> Void
 
-    func countries(callback: @escaping (_ data: Countries?, _ error: ApiError?) -> Void) {
+protocol CountriesApiClientProtocol {
+    func countries(callback: @escaping CountriesCallback)
+    func country(identifier: String, callback: @escaping CountryCallback)
+}
+
+class CountriesApiClient: ApiClient, CountriesApiClientProtocol {
+    func countries(callback: @escaping CountriesCallback) {
         callApi(using: .get, with: nil, for: "/api/v1/countries", callback: callback)
     }
 
-    func country(identifier: String, callback: @escaping (_ data: Country?, _ error: ApiError?) -> Void) {
+    func country(identifier: String, callback: @escaping CountryCallback) {
         callApi(using: .get, with: nil, for: "/api/v1/countries\(identifier)", callback: callback)
     }
 }

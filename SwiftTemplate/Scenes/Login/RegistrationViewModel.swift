@@ -12,13 +12,13 @@ import Bond
 
 class RegistrationViewModel: AppViewModel {
     let userRepository: UserRepository!
-    let registrationNavigator: RegistrationNavigator!
+    let registrationNavigator: AppNavigatorProtocol!
 
     // Input
     var username = Property<String?>("")
     var password = Property<String?>("")
 
-    init(userRepository: UserRepository, registrationNavigator: RegistrationNavigator) {
+    init(userRepository: UserRepository, registrationNavigator: AppNavigatorProtocol) {
         self.userRepository = userRepository
         self.registrationNavigator = registrationNavigator
         super.init()

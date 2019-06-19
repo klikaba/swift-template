@@ -10,9 +10,13 @@ import Foundation
 
 typealias LoginServiceLoginCompletion = (_ error: ApiError?) -> Void
 
-class LoginRepository {
+protocol LoginRepositoryProtocol {
+     func signIn(username: String, password: String)
+}
 
+class LoginRepository: LoginRepositoryProtocol {
     var loginCompletionHandler: LoginServiceLoginCompletion?
+    var currentSession = SessionStore.currentSession
 
     func signIn(username: String, password: String) {
         UserApiClient().signIn(username: username,
@@ -22,7 +26,7 @@ class LoginRepository {
 
     private func onSignInCompleted(_ accessToken: AccessToken?, _ error: ApiError?) {
         if let accessToken = accessToken {
-            SessionStore.save(accessToken: accessToken)
+            currentSession.save(accessToken: accessToken)
         }
         loginCompletionHandler?(error)
     }

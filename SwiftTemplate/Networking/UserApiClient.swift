@@ -11,16 +11,6 @@ import AlamofireObjectMapper
 
 class UserApiClient: ApiClient {
 
-    func signIn(username: String, password: String,
-                callback: @escaping (_ accessToken: AccessToken?, _ error: ApiError?) -> Void) {
-        let parameters: Parameters = ["grant_type": "password",
-                                      "username": username,
-                                      "password": password,
-                                      "client_id": AppConfiguration.sharedInstance().apiClient,
-                                      "client_secret": AppConfiguration.sharedInstance().apiSecret]
-        callApi(using: .post, with: parameters, for: "/oauth/token", callback: callback)
-    }
-
     func create(username: String,
                 password: String,
                 callback: @escaping (_ user: User?, _ error: ApiError?) -> Void) {
@@ -30,5 +20,15 @@ class UserApiClient: ApiClient {
 
     func getUser(identifier: String, callback: @escaping (_ user: User?, _ error: ApiError?) -> Void) {
         callApi(using: .get, with: nil, for: identifier, callback: callback)
+    }
+
+    func signIn(username: String, password: String,
+                callback: @escaping (_ accessToken: AccessToken?, _ error: ApiError?) -> Void) {
+        let parameters: Parameters = ["grant_type": "password",
+                                      "username": username,
+                                      "password": password,
+                                      "client_id": AppConfiguration.sharedInstance().apiClient,
+                                      "client_secret": AppConfiguration.sharedInstance().apiSecret]
+        callApi(using: .post, with: parameters, for: "/oauth/token", callback: callback)
     }
 }
