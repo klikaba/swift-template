@@ -12,14 +12,14 @@ import Bond
 
 class LoginViewModel: AppViewModel {
     let loginRepository: LoginRepository!
-    let loginNavigator: LoginNavigator
+    let loginNavigator: AppNavigatorProtocol
     // Input
     var username = Property<String?>("")
     var password = Property<String?>("")
 
     // Output
 
-    init(loginRepository: LoginRepository, loginNavigator: LoginNavigator) {
+    init(loginRepository: LoginRepository, loginNavigator: AppNavigatorProtocol) {
         self.loginRepository = loginRepository
         self.loginNavigator = loginNavigator
         super.init()

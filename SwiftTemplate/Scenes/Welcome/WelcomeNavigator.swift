@@ -8,7 +8,11 @@
 
 import UIKit
 
-class WelcomeNavigator: AppNavigator {
+protocol WelcomeNavigatorProtocol: AppNavigatorProtocol {
+    func goToRegistration()
+}
+
+class WelcomeNavigator: AppNavigator, WelcomeNavigatorProtocol {
     func goToRegistration() {
         let registrationViewController = RegistrationViewController
             .instantiateFromAppStoryboard(appStoryboard: .registration)

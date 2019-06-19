@@ -8,23 +8,20 @@
 import Alamofire
 import AlamofireObjectMapper
 
-class CountriesApiClient: ApiClient {
+typealias CountriesCallback = (_ data: Countries?, _ error: ApiError?) -> Void
+typealias CountryCallback = (_ data: Country?, _ error: ApiError?) -> Void
 
-    func signIn(username: String, password: String,
-                callback: @escaping (_ accessToken: AccessToken?, _ error: ApiError?) -> Void) {
-        let parameters: Parameters = ["grant_type": "password",
-                                      "username": username,
-                                      "password": password,
-                                      "client_id": AppConfiguration.sharedInstance().apiClient,
-                                      "client_secret": AppConfiguration.sharedInstance().apiSecret]
-        callApi(using: .post, with: parameters, for: "/oauth/token", callback: callback)
-    }
+protocol CountriesApiClientProtocol {
+    func countries(callback: @escaping CountriesCallback)
+    func country(identifier: String, callback: @escaping CountryCallback)
+}
 
-    func countries(callback: @escaping (_ data: Countries?, _ error: ApiError?) -> Void) {
+class CountriesApiClient: ApiClient, CountriesApiClientProtocol {
+    func countries(callback: @escaping CountriesCallback) {
         callApi(using: .get, with: nil, for: "/api/v1/countries", callback: callback)
     }
 
-    func country(identifier: String, callback: @escaping (_ data: Country?, _ error: ApiError?) -> Void) {
+    func country(identifier: String, callback: @escaping CountryCallback) {
         callApi(using: .get, with: nil, for: "/api/v1/countries\(identifier)", callback: callback)
     }
 }
