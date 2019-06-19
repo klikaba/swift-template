@@ -6,9 +6,9 @@
 //  Copyright © 2018 Klika d.o.o. Sarajevo. All rights reserved.
 //
 BUNDLE_NAME = Swift Template
-PRODUCT_BUNDLE_IDENTIFIER = com.klika.SwiftTemplate.Test
-PRODUCT_BUNDLE_VERSION = 1.0.0
-PRODUCT_BUNDLE_BUILD = 1
+BUNDLE_IDENTIFIER = com.klika.SwiftTemplate.Test
+BUNDLE_VERSION = 1.0.0
+BUNDLE_BUILD = 1
 
 IS_APP_ICON = AppIconTest
 
