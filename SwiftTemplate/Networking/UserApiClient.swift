@@ -10,6 +10,7 @@ import Alamofire
 import AlamofireObjectMapper
 
 class UserApiClient: ApiClient {
+
     func create(username: String,
                 password: String,
                 callback: @escaping (_ user: User?, _ error: ApiError?) -> Void) {

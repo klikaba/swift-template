@@ -11,12 +11,12 @@ PODS:
   - AppCenter/Core (1.9.0)
   - AppCenter/Crashes (1.9.0):
     - AppCenter/Core
-  - Bond (6.10.0):
-    - Differ (~> 1.2)
-    - ReactiveKit (~> 3.9)
-  - Differ (1.3.0)
+  - Bond (7.5.0):
+    - Differ (~> 1.3)
+    - ReactiveKit (~> 3.10)
+  - Differ (1.4.3)
   - ObjectMapper (3.3.0)
-  - ReactiveKit (3.9.6)
+  - ReactiveKit (3.12.2)
   - Realm (3.11.0):
     - Realm/Headers (= 3.11.0)
   - Realm/Headers (3.11.0)
@@ -50,10 +50,10 @@ SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   AlamofireObjectMapper: 3395e698901d8b0e6f48b7d0c43bd47875325102
   AppCenter: 3cf7b9387549e9703dab068793e404013e8c0cc1
-  Bond: 86b0a343dcb8c8ad18c8a31fc9faa2ba45280b30
-  Differ: 9fcee7602542d7c6484ce05a0faec1c11258ed63
+  Bond: 6abbc33a4cf88e65a0f8b1ba8276ac34584ad897
+  Differ: 6c7477d6187e8c36d02ec342a3c321061b85a0ea
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
-  ReactiveKit: 804d3093ad42dee0de19e42d4f7dcae9c14364b0
+  ReactiveKit: 33adc5550145e8200daa3eb210841f2a0be642c6
   Realm: 92f09a102692b96a9a10e9617f214f15c5ab85fc
   RealmSwift: 5f0481cd658bb751c509314b964a35eaa264d2cf
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
