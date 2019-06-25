@@ -4,5 +4,5 @@ install_dependencies:
 	overcommit --install
 	overcommit --sign
 	overcommit --sign pre-commit
-	pod install
+	pod install --repo-update
 
