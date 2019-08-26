@@ -22,7 +22,9 @@ class RegistrationViewModel: AppViewModel {
         self.userRepository = userRepository
         self.registrationNavigator = registrationNavigator
         super.init()
-        self.userRepository.userActionCompletionHandler = onUserActionCompletedHandler
+        self.userRepository.userActionCompletionHandler = { [weak self] (error) in
+            self?.onUserActionCompletedHandler(error)
+        }
     }
 
     func doRegistration() {

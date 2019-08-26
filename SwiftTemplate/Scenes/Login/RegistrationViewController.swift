@@ -9,6 +9,7 @@
 import UIKit
 
 class RegistrationViewController: AppViewController<RegistrationViewModel> {
+
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
 
