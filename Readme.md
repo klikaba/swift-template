@@ -68,4 +68,4 @@ AppCentar
 
 ## Maintainers
 
-- [Haris Dizdarevic](https://github.com/haris-dizdarevic), [Zaharije Pasalic](https://github.com/zpasal)
+- [Haris Dizdarevic](https://github.com/haris-dizdarevic), [Zaharije Pasalic](https://github.com/zpasal) and [Adin Ćebić](https://github.com/adincebic)

@@ -19,7 +19,7 @@ class WelcomeNavigator: AppNavigator, WelcomeNavigatorProtocol {
         let registrationNavigator = RegistrationNavigator(navigationController: navigationController)
         registrationViewController.viewModel = RegistrationViewModelFactory
             .create(with: registrationNavigator)
-        navigationController.setNavigationBarHidden(false, animated: false)
-        navigationController.pushViewController(registrationViewController, animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.pushViewController(registrationViewController, animated: true)
     }
 }

@@ -11,6 +11,7 @@ import ReactiveKit
 import Bond
 
 class LoginViewModel: AppViewModel {
+
     let loginRepository: LoginRepository!
     let loginNavigator: AppNavigatorProtocol
     // Input
@@ -23,7 +24,9 @@ class LoginViewModel: AppViewModel {
         self.loginRepository = loginRepository
         self.loginNavigator = loginNavigator
         super.init()
-        self.loginRepository.loginCompletionHandler = onLoginCompletedHandler
+        self.loginRepository.loginCompletionHandler = { [weak self] (error) in
+            self?.onLoginCompletedHandler(error)
+        }
     }
 
     func doLogin() {

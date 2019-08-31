@@ -7,9 +7,10 @@ protocol AppNavigatorProtocol {
 }
 
 class AppNavigator: AppNavigatorProtocol {
-    let navigationController: UINavigationController
 
-    init(navigationController: UINavigationController) {
+    weak var navigationController: UINavigationController?
+
+    init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
     }
 
@@ -18,8 +19,8 @@ class AppNavigator: AppNavigatorProtocol {
                                                                                        .welcome)
         let welcomeNavigator = WelcomeNavigator(navigationController: navigationController)
         welcomeViewController.viewModel = WelcomeViewModel(welcomeNavigator: welcomeNavigator)
-        navigationController.setNavigationBarHidden(true, animated: false)
-        navigationController.pushViewController(welcomeViewController, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.pushViewController(welcomeViewController, animated: true)
     }
 
     func goToHome() {
@@ -35,15 +36,15 @@ class AppNavigator: AppNavigatorProtocol {
         userViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 2)
         tabBarController.viewControllers = [countriesViewController, userViewController]
         // Until we implement logout and sidemenu
-        navigationController.pushViewController(tabBarController, animated: true)
+        navigationController?.pushViewController(tabBarController, animated: true)
     }
 
     func goToLogin() {
         let loginViewController = LoginViewController.instantiateFromAppStoryboard(appStoryboard: .login)
         let loginNavigator = LoginNavigator(navigationController: navigationController)
         loginViewController.viewModel = LoginViewModelFactory.create(with: loginNavigator)
-        navigationController.setNavigationBarHidden(false, animated: false)
-        navigationController.pushViewController(loginViewController, animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.pushViewController(loginViewController, animated: true)
     }
 
 }

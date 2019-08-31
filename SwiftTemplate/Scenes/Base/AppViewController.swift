@@ -17,8 +17,8 @@ class AppViewController<TViewModel: AppViewModel>: UIViewController {
     }
 
     func bindViewModel() {
-        _ = viewModel.error.observeNext { (error) in
-            self.showError(error: error)
+        _ = viewModel.error.observeNext { [weak self] (error) in
+            self?.showError(error: error)
         }
     }
 
