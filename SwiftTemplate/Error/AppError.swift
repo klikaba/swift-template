@@ -1,3 +1,4 @@
+import Foundation
 import Alamofire
 
 class AppError: Error {

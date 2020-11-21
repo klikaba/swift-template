@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import ObjectMapper
 
 class ApiClient {
     static let sessionManager: Session = {

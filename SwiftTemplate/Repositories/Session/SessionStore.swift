@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import ObjectMapper
 
 protocol SessionStoreProtocol {
     func save(accessToken: AccessToken)
