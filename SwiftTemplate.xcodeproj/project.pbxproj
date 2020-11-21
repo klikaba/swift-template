@@ -69,6 +69,13 @@
 		607EE61C2184A44700DC6FED /* CountriesViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607EE61B2184A44700DC6FED /* CountriesViewModelTest.swift */; };
 		60CC61192170DFD8001134DC /* UserRepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CC61182170DFD8001134DC /* UserRepositoryFactory.swift */; };
 		60CC611D2170EA95001134DC /* RegistrationViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CC611C2170EA95001134DC /* RegistrationViewModelFactory.swift */; };
+		7265293D25693FF500676A6E /* UserSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7265293C25693FF500676A6E /* UserSignIn.swift */; };
+		72652941256944C000676A6E /* EncodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72652940256944C000676A6E /* EncodableExtension.swift */; };
+		72652950256944D500676A6E /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7265294F256944D500676A6E /* DataExtension.swift */; };
+		726529562569458500676A6E /* KeyChainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726529552569458500676A6E /* KeyChainHelper.swift */; };
+		726AD74125691BA70067A34C /* TokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726AD74025691BA70067A34C /* TokenRequest.swift */; };
+		726AD745256926B60067A34C /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726AD744256926B60067A34C /* AnyEncodable.swift */; };
+		726AD74925693CA40067A34C /* userSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726AD74825693CA40067A34C /* userSignUp.swift */; };
 		E3D9C80EE16D58BB57E7A585 /* Pods_SwiftTemplateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1FAD26480A657CFDDD461D /* Pods_SwiftTemplateTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -154,6 +161,13 @@
 		60CC611C2170EA95001134DC /* RegistrationViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModelFactory.swift; sourceTree = "<group>"; };
 		6E1FAD26480A657CFDDD461D /* Pods_SwiftTemplateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftTemplateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF1403356DFE7622A02C2C8 /* Pods_SwiftTemplate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftTemplate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7265293C25693FF500676A6E /* UserSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSignIn.swift; sourceTree = "<group>"; };
+		72652940256944C000676A6E /* EncodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtension.swift; sourceTree = "<group>"; };
+		7265294F256944D500676A6E /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
+		726529552569458500676A6E /* KeyChainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainHelper.swift; sourceTree = "<group>"; };
+		726AD74025691BA70067A34C /* TokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRequest.swift; sourceTree = "<group>"; };
+		726AD744256926B60067A34C /* AnyEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyEncodable.swift; sourceTree = "<group>"; };
+		726AD74825693CA40067A34C /* userSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userSignUp.swift; sourceTree = "<group>"; };
 		756E55D1922A8F3DD71FF159 /* Pods-SwiftTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTemplate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftTemplate/Pods-SwiftTemplate.debug.xcconfig"; sourceTree = "<group>"; };
 		79C6FB3736E07C03FEF64B8E /* Pods-SwiftTemplateTests.testdebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTemplateTests.testdebug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftTemplateTests/Pods-SwiftTemplateTests.testdebug.xcconfig"; sourceTree = "<group>"; };
 		8EA25EE461DBBDF9A999FDEC /* Pods-SwiftTemplateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTemplateTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftTemplateTests/Pods-SwiftTemplateTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -187,6 +201,9 @@
 			children = (
 				012C422120B711A3007EC314 /* AppConfiguration.swift */,
 				01DF1C9720E8D7FA005CE550 /* UIViewController+Storyboard.swift */,
+				72652940256944C000676A6E /* EncodableExtension.swift */,
+				7265294F256944D500676A6E /* DataExtension.swift */,
+				726529552569458500676A6E /* KeyChainHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -214,7 +231,11 @@
 				012C423020B7175B007EC314 /* Country.swift */,
 				01D8AC8D20BCA20300D10081 /* Countries.swift */,
 				01D8AC8F20BCB1D700D10081 /* AccessToken.swift */,
+				726AD74025691BA70067A34C /* TokenRequest.swift */,
 				600C07EA216B912F004B55C4 /* User.swift */,
+				726AD74825693CA40067A34C /* userSignUp.swift */,
+				7265293C25693FF500676A6E /* UserSignIn.swift */,
+				726AD744256926B60067A34C /* AnyEncodable.swift */,
 			);
 			path = ApiModels;
 			sourceTree = "<group>";
@@ -618,7 +639,6 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SwiftTemplate/Pods-SwiftTemplate-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Bond/Bond.framework",
 				"${BUILT_PRODUCTS_DIR}/Differ/Differ.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
@@ -629,7 +649,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bond.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differ.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
@@ -705,27 +724,33 @@
 				01D8AC9020BCB1D700D10081 /* AccessToken.swift in Sources */,
 				01DF1C9620E8D7B2005CE550 /* AppStoryboard.swift in Sources */,
 				01DBF24820B6FC1600DCEF1B /* WelcomeViewController.swift in Sources */,
+				726529562569458500676A6E /* KeyChainHelper.swift in Sources */,
 				601D7A87217344A200C143A5 /* CountriesViewModelFactory.swift in Sources */,
 				601D7A812173419B00C143A5 /* CountriesRepositoryFactory.swift in Sources */,
+				7265293D25693FF500676A6E /* UserSignIn.swift in Sources */,
 				0150F57E20CA7CE40017F90F /* AppViewController.swift in Sources */,
 				019A889620BFF6AE0096C6C0 /* LoginRepository.swift in Sources */,
 				01DF1C9020E8D48C005CE550 /* CountriesViewController.swift in Sources */,
 				601D7A93217355D100C143A5 /* UserViewModel.swift in Sources */,
 				60CC611D2170EA95001134DC /* RegistrationViewModelFactory.swift in Sources */,
 				018A1EA620CABF9700BDC03D /* LoginViewController.swift in Sources */,
+				72652941256944C000676A6E /* EncodableExtension.swift in Sources */,
 				01D8AC8720BC89E900D10081 /* CountriesAPIClient.swift in Sources */,
 				600C07E7216B8E18004B55C4 /* UserRepository.swift in Sources */,
 				600C07ED216B94E3004B55C4 /* DBUser.swift in Sources */,
 				01DBF24620B6FC1600DCEF1B /* AppDelegate.swift in Sources */,
 				01D8AC8E20BCA20300D10081 /* Countries.swift in Sources */,
 				600C07F1216B96AA004B55C4 /* UserMapper.swift in Sources */,
+				726AD74125691BA70067A34C /* TokenRequest.swift in Sources */,
 				01A43EBF20BF35970068B0EC /* OAuth2Handler.swift in Sources */,
 				018A1EA020CABE0A00BDC03D /* WelcomeNavigator.swift in Sources */,
 				012C424620B71A26007EC314 /* RealmDAO.swift in Sources */,
 				600C07EB216B912F004B55C4 /* User.swift in Sources */,
 				601D7A91217355A600C143A5 /* UserViewController.swift in Sources */,
+				726AD745256926B60067A34C /* AnyEncodable.swift in Sources */,
 				60CC61192170DFD8001134DC /* UserRepositoryFactory.swift in Sources */,
 				600C07E9216B90EE004B55C4 /* UserApiClient.swift in Sources */,
+				726AD74925693CA40067A34C /* userSignUp.swift in Sources */,
 				601D7A832173426C00C143A5 /* WelcomeViewModelFactory.swift in Sources */,
 				01D8AC9720BD1E4000D10081 /* SessionStore.swift in Sources */,
 				01D8AC8C20BC8F9200D10081 /* AppError.swift in Sources */,
@@ -733,6 +758,7 @@
 				601D7A7D2173362800C143A5 /* AppNavigator.swift in Sources */,
 				0167BD9C20C0102C00F44946 /* CountryMapper.swift in Sources */,
 				600C07EF216B95CB004B55C4 /* UserDAO.swift in Sources */,
+				72652950256944D500676A6E /* DataExtension.swift in Sources */,
 				012C423120B7175B007EC314 /* Country.swift in Sources */,
 				01DF1C9A20E8DFC6005CE550 /* CountriesRepository.swift in Sources */,
 				01D8AC8920BC8E7600D10081 /* ApiClient.swift in Sources */,

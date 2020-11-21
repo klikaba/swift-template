@@ -10,8 +10,6 @@
 		<string>$(apiSecret)</string>
 		<key>appCenterId</key>
 		<string>$(appCenterId)</string>
-		<key>serverProto</key>
-		<string>$(serverProto)</string>
 		<key>serverUrl</key>
 		<string>$(serverUrl)</string>
 	</dict>

@@ -7,88 +7,85 @@
 //
 import Alamofire
 
-class OAuth2Handler: RequestAdapter, RequestRetrier {
-    private typealias RefreshCompletion = (_ succeeded: Bool, _ accessToken: AccessToken?) -> Void
-
-    private let sessionManager: SessionManager = {
-        let configuration = URLSessionConfiguration.default
-        configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
-
-        return SessionManager(configuration: configuration)
-    }()
+class OAuth2Handler: RequestInterceptor {
+    private var sessionManager: Session {
+        return ApiClient.sessionManager
+    }
 
     private let lock = NSLock()
-    private static let serverProto: String = "\(AppConfiguration.sharedInstance().serverProto)://"
-    private static let serverUrl: String = "\(AppConfiguration.sharedInstance().serverUrl)"
-    private let baseURLString: String = "\(serverProto)\(serverUrl)"
+    private static let serverUrl = AppConfiguration.sharedInstance().serverUrl
 
     private var isRefreshing = false
-    private var requestsToRetry: [RequestRetryCompletion] = []
+private var requestsToRetry: [((RetryResult) -> Void)] = []
 
-    public init() {
-    }
+init() {}
 
-    func adapt(_ urlRequest: URLRequest) throws -> URLRequest {
-        if let urlString = urlRequest.url?.absoluteString, urlString.hasPrefix(baseURLString),
-            let token = SessionStore.currentSession.get() {
-                var urlRequest = urlRequest
-                urlRequest.setValue("Bearer " + token.accessToken, forHTTPHeaderField: "Authorization")
-                return urlRequest
+    func adapt(_ urlRequest: URLRequest,
+               for session: Session,
+               completion: @escaping (Result<URLRequest, Error>) -> Void) {
+        if let urlString = urlRequest.url?.absoluteString, urlString.hasPrefix(OAuth2Handler.serverUrl),
+           let token = SessionStore.currentSession.get()?.accessToken {
+            var urlRequest = urlRequest
+            urlRequest.setValue("Bearer " + token, forHTTPHeaderField: "Authorization")
+            completion(.success(urlRequest))
+            return
         }
-
-        return urlRequest
+        completion(.success(urlRequest))
     }
 
-    func should(_ manager: SessionManager, retry request: Request, with error: Error,
-                completion: @escaping RequestRetryCompletion) {
+    func retry(_ request: Request,
+               for session: Session,
+               dueTo error: Error,
+               completion: @escaping (RetryResult) -> Void) {
         lock.lock() ; defer { lock.unlock() }
-
-        if let response = request.task?.response as? HTTPURLResponse, response.statusCode == 401 {
+        if let response = request.task?.response as? HTTPURLResponse,
+            SessionStore.currentSession.get() != nil,
+            response.statusCode == 401 {
             requestsToRetry.append(completion)
 
             if !isRefreshing {
-                refreshTokens { [weak self] succeeded, accessTokenObj in
-                    guard let strongSelf = self else { return }
-
-                    strongSelf.lock.lock() ; defer { strongSelf.lock.unlock() }
-
+                refreshTokens { [weak self] accessTokenObj in
+                    guard let self = self else { return }
+                    self.lock.lock() ; defer { self.lock.unlock() }
                     if let token = accessTokenObj {
                         SessionStore.currentSession.save(accessToken: token)
+                        self.requestsToRetry.forEach { $0(.retry) }
+                    } else {
+                        self.requestsToRetry.forEach { $0(.doNotRetryWithError(error)) }
                     }
-
-                    strongSelf.requestsToRetry.forEach { $0(succeeded, 0.0) }
-                    strongSelf.requestsToRetry.removeAll()
+                    self.requestsToRetry.removeAll()
                 }
             }
         } else {
-            completion(false, 0.0)
+            completion(.doNotRetryWithError(error))
         }
     }
 
-    private func refreshTokens(completion: @escaping RefreshCompletion) {
+    private func refreshTokens(completion: @escaping (AccessToken?) -> Void) {
         guard !isRefreshing else { return }
 
         isRefreshing = true
 
-        let urlString: String = "\(baseURLString)/oauth/token"
+        var url = URL(string: AppConfiguration.sharedInstance().serverUrl)!
+        url.appendPathComponent("oauth")
+        url.appendPathComponent("token")
         let token: AccessToken? = SessionStore.currentSession.get()
-        let parameters: [String: Any] = [
-            "refresh_token": token!.refreshToken,
-            "client_id": AppConfiguration.sharedInstance().apiClient,
-            "client_secret": AppConfiguration.sharedInstance().apiSecret,
-            "grant_type": "refresh_token"
-        ]
-
-        sessionManager.request(urlString, method: .post, parameters: parameters).validate()
-            .responseObject { [weak self] (response: DataResponse<AccessToken>) in
-                guard let strongSelf = self else { return }
-                if response.result.isSuccess {
-                    completion(true, response.value)
-                } else {
-                    completion(false, nil)
+        let params = TokenRequest(refreshToken: token?.refreshToken ?? "",
+                                  clientId: AppConfiguration.sharedInstance().apiClient,
+                                  clientSecret: AppConfiguration.sharedInstance().apiSecret,
+                                  grantType: .refreshToken)
+        sessionManager.request(url,
+                               method: .post,
+                               parameters: params).validate()
+            .validate().responseDecodable { [weak self] (response: DataResponse<AccessToken, AFError>) in
+                switch response.result {
+                case .success(let token):
+                    completion(token)
+                case .failure:
+                    completion(nil)
                 }
-                strongSelf.isRefreshing = false
-        }
-
+                guard let self = self else { return }
+                self.isRefreshing = false
+            }
     }
 }
