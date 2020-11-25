@@ -168,6 +168,7 @@
 		726AD74025691BA70067A34C /* TokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRequest.swift; sourceTree = "<group>"; };
 		726AD744256926B60067A34C /* AnyEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyEncodable.swift; sourceTree = "<group>"; };
 		726AD74825693CA40067A34C /* userSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userSignUp.swift; sourceTree = "<group>"; };
+		7298861A256E618C00F3E571 /* runSwiftlint.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = runSwiftlint.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,6 +376,7 @@
 		01DBF23920B6FC1600DCEF1B = {
 			isa = PBXGroup;
 			children = (
+				72988619256E615F00F3E571 /* BuildScripts */,
 				012C422620B71493007EC314 /* .swiftlint.yml */,
 				01DBF25920B6FD9300DCEF1B /* Environments */,
 				01DBF24420B6FC1600DCEF1B /* SwiftTemplate */,
@@ -482,6 +484,14 @@
 			path = RepositoryFactories;
 			sourceTree = "<group>";
 		};
+		72988619256E615F00F3E571 /* BuildScripts */ = {
+			isa = PBXGroup;
+			children = (
+				7298861A256E618C00F3E571 /* runSwiftlint.sh */,
+			);
+			path = BuildScripts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -490,6 +500,7 @@
 			buildConfigurationList = 01DBF25420B6FC1600DCEF1B /* Build configuration list for PBXNativeTarget "SwiftTemplate" */;
 			buildPhases = (
 				01DBF23E20B6FC1600DCEF1B /* Sources */,
+				7298861D256E621F00F3E571 /* Run Swiftlont */,
 				01DBF23F20B6FC1600DCEF1B /* Frameworks */,
 				01DBF24020B6FC1600DCEF1B /* Resources */,
 			);
@@ -545,6 +556,7 @@
 					};
 					607EE605218488FD00DC6FED = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1220;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 01DBF24120B6FC1600DCEF1B;
 					};
@@ -598,6 +610,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7298861D256E621F00F3E571 /* Run Swiftlont */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Swiftlont";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "$SRCROOT/BuildScripts/runSwiftlint.sh\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		01DBF23E20B6FC1600DCEF1B /* Sources */ = {
@@ -825,7 +858,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.klika.SwiftTemplate.Test;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -844,7 +877,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.klika.SwiftTemplate.Test;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -924,7 +957,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.klika.SwiftTemplate.Test;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -998,7 +1031,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.klika.SwiftTemplate.Test;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

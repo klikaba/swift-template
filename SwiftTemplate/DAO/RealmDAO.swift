@@ -8,6 +8,7 @@ class RealmDAO<T: Object> {
         let configuration = Realm.Configuration(
             deleteRealmIfMigrationNeeded: true
         )
+        // swiftlint:disable:next force_try
         realm = try! Realm(configuration: configuration)
     }
 
