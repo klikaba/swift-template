@@ -8,39 +8,57 @@
 
 import Foundation
 import Alamofire
-import ObjectMapper
 
 class ApiClient {
-    static let sessionManager: SessionManager = {
-        var defaultHeaders = Alamofire.SessionManager.defaultHTTPHeaders
-        defaultHeaders["Content-Type"] = "application/json"
-        defaultHeaders["Accept"] = "application/json"
+    static let sessionManager: Session = {
+        var defaultHeaders = HTTPHeaders.default
+        defaultHeaders.add(HTTPHeader.contentType("application/json"))
+        defaultHeaders.add(HTTPHeader.accept("application/json"))
 
-        // Move to xconfig
         let configuration = URLSessionConfiguration.default
-        configuration.httpAdditionalHeaders = defaultHeaders
+        configuration.httpAdditionalHeaders = defaultHeaders.dictionary
         configuration.timeoutIntervalForRequest = 15
-
-        let sessionManager = Alamofire.SessionManager(configuration: configuration)
         let oauth2Handler = OAuth2Handler()
-        sessionManager.adapter = oauth2Handler
-        sessionManager.retrier = oauth2Handler
-        return sessionManager
+        let session = Session(configuration: configuration,
+                              interceptor: oauth2Handler)
+        return session
     }()
 
-    func buildUrl(_ path: String) -> String {
-        return "\(AppConfiguration.sharedInstance().serverProto):" +
-               "//\(AppConfiguration.sharedInstance().serverUrl)\(path)"
+    func buildUrl(_ path: String) -> URL {
+        var url = URL(string: AppConfiguration.sharedInstance().serverUrl)!
+        url.appendPathComponent(path)
+        return url
     }
 
-    func callApi<ApiModel: Mappable>(using method: HTTPMethod,
-                                     with parameters: [String: Any]?,
-                                     for path: String,
-                                     callback: @escaping (_ data: ApiModel?, _ error: ApiError?) -> Void) {
-        ApiClient.sessionManager.request(buildUrl(path), method: method, parameters: parameters).validate()
-            .responseObject { (response: DataResponse<ApiModel>) in
-                debugPrint(response)
-                callback(response.value, ApiError.fromDataResponse(response: response))
-        }
+    func makeRequest<ResponseModel: Decodable>(
+        using httpMethod: HTTPMethod,
+        body: Encodable?,
+        path: String,
+        encoder: ParameterEncoder = JSONParameterEncoder.default,
+        headers: HTTPHeaders = [:],
+        decoder: DataDecoder = JSONDecoder(),
+        requestModifier: Session.RequestModifier? = nil,
+        callback: @escaping (ResponseModel?, ApiError?) -> Void) {
+
+        let url = buildUrl(path)
+
+        ApiClient.sessionManager.request(
+            url,
+            method: httpMethod,
+            parameters: body == nil ? nil : AnyEncodable(value: body!),
+            encoder: encoder,
+            headers: headers,
+            requestModifier: requestModifier)
+            .validate(statusCode: 200..<300)
+        .responseDecodable(
+            decoder: decoder,
+            completionHandler: { (response: DataResponse<ResponseModel, AFError>) in
+                switch response.result {
+                case .success(let responseBody):
+                    callback(responseBody, nil)
+                case .failure:
+                    callback(nil, ApiError.fromDataResponse(response: response))
+                }
+        })
     }
 }

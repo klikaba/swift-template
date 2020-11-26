@@ -1,19 +1,12 @@
-//
-//  AppError.swift
-//  SwiftTemplate
-//
-//  Created by zaharijepasalic on 5/28/18.
-//  Copyright © 2018 Klika d.o.o. Sarajevo. All rights reserved.
-//
-
+import Foundation
 import Alamofire
 
 class AppError: Error {
-    let code: Int
+    let title: String
     let message: String
 
-    init(code: Int, message: String) {
-        self.code = code
+    init(title: String, message: String) {
+        self.title = title
         self.message = message
     }
 }
@@ -41,7 +34,7 @@ class ApiError: AppError {
         self.response = response
         self.data = data
         self.error = error
-        super.init(code: 1, message: "Network error!")
+        super.init(title: "Network error", message: "A network error has occured")
     }
 
     public init(
@@ -54,17 +47,18 @@ class ApiError: AppError {
         self.response = response
         self.data = data
         self.error = error
-        super.init(code: 1, message: errorMessage)
+        super.init(title: "", message: errorMessage)
     }
 
-    static func fromDataResponse<T>(response: DataResponse<T>) -> ApiError? {
-        if response.result.isFailure {
+    static func fromDataResponse<T>(response: DataResponse<T, AFError>) -> ApiError? {
+        switch response.result {
+        case .failure(let error):
             return ApiError(request: response.request,
                             response: response.response,
                             data: response.data,
-                            error: response.error)
+                            error: error)
+        default:
+            return nil
         }
-        return nil
     }
-
 }

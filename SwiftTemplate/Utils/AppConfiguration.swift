@@ -27,10 +27,6 @@ class AppConfiguration {
         return get("\(#function)")!
     }
 
-    var serverProto: String {
-        return get("\(#function)")!
-    }
-
     var apiClient: String {
         return get("\(#function)")!
     }

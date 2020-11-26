@@ -15,8 +15,7 @@ IS_APP_ICON = AppIconTest
 // Configuration
 appCenterId = ad286b58-d423-4425-9a84-059f04eae8e5
 
-serverProto = http
-serverUrl = localhost:3000
+serverUrl = http:/$()/localhost:3000
 
 apiClient = 85ea9f8b77dbe079810f848832f079f05e27a821c3132bc98f71a95c0f58e584
 apiSecret = aab62f79371cec7b6f86eaaecf773fdb74789bf93fbf0f49a008d140d16dcfde

@@ -8,8 +8,6 @@
 
 import UIKit
 import AppCenter
-import AppCenterAnalytics
-import AppCenterCrashes
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,8 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions
         launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        MSAppCenter.start(AppConfiguration.sharedInstance().appCenterId,
-                          withServices: [ MSAnalytics.self, MSCrashes.self ])
+
         let navigationController = UINavigationController()
         AppNavigator(navigationController: navigationController).goToWelcome()
         window = UIWindow(frame: UIScreen.main.bounds)

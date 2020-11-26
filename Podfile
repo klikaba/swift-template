@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '9.0'
+platform :ios, '14.0'
 
 # ignore all warnings from all pods
 inhibit_all_warnings!
@@ -8,8 +8,7 @@ target 'SwiftTemplate' do
   use_frameworks!
 
   pod 'SwiftLint'
-  pod 'Alamofire'
-  pod 'AlamofireObjectMapper'
+  pod 'Alamofire', '~> 5.2'
   pod 'ObjectMapper'
   pod 'RealmSwift'
   pod 'AppCenter'

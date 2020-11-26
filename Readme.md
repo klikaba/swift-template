@@ -1,14 +1,13 @@
 [![Build status](https://build.appcenter.ms/v0.1/apps/dec0333b-e254-4bc9-a2ce-65237640e84a/branches/dev/badge)](https://appcenter.ms)
 
-# Swift Template
+# BawagPSK mobile banking
 
-This template provides starting point for Swift iOS app, following Klika quality guidelines,  with implemented authentication following OAuth2 standard.
+iOS project for Klar and EasyBank   applications.
 
 ## Setup
 
 ### Dependencies
 
-- Cocoapods
 - Overcommit
 
 ```
@@ -16,9 +15,13 @@ $ make install_dependencies
 ```
 this script will:
 
-- install cocoapods
 - install overcommit
-- run pod install
+
+## Adding third-party dependencies with Swift Package Manager
+1. In Xcode, go to File > Swift packages > Add new package dependency
+2. Enter package repository URL and click next
+3. Choose version options and click next
+4. Select desired dependency targets and click finish
 
 ### Configuration
 
@@ -32,8 +35,25 @@ Use Klika quality guidelines for general development references.
 
 A tool to enforce Swift style and conventions, loosely based on [GitHub's Swift Style Guide.](https://github.com/github/swift-style-guide)
 
-### Cerfificate handling
-TBD
+### certificate handling
+Currently done manually.
+
+### Build scripts
+We are currently using two scripts:
+* runSwiftlint.sh | Runs swiftlint in debug configuration only
+* stripUnusedArchitectures | Stripps unused architectures for static frameworks.
+
+Scripts are located under BuildScripts folder at the root of the project.
+
+## Adding new build scripts
+1. Add script file to BuildScripts folder
+2. Use "chmod u+x [filePath]" to give script permission to be executed. E.g. chmod u+x BuildScripts/runSwiftlinth.sh
+3. In the Xcode file navigator, select .xcodeproj file and select "Build phases" tab
+4. Click on the plus icon and add new run script build phase. A new run script entry should appear at the end of the build phases list
+5. Expand newly added run script phase
+6. In the script editor, type out the path to script file. E.g. $SRCROOT/BuildScripts/runSwiftlint.sh. $SRCROOT refers to the root directory of the project.
+
+Repeat steps 4, 5 and 6 for other targets from which you want to run the script.
 
 ### New feature
 
@@ -42,13 +62,14 @@ Use [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflo
 ### Pull request quality gates
 
 - no conflicts with target branch
-- pass AppCentar tests
+- pass Microsoft AppCenter tests (optional at the moment due to very long build time)
 - code review approval
 
 ## Tools
 
 ### Networking with Alamofire
-Networking is implemented via [Alamofire](https://github.com/Alamofire/Alamofire) that enables easy parsing of response to Api Models inside app together with [AlamofireObjectMapper](https://github.com/tristanhimmelman/AlamofireObjectMapper) and [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper)
+Networking is implemented via [Alamofire](https://github.com/Alamofire/Alamofire) that enables easy parsing of response to Api Models inside app together with  [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper).
+NOTE: For new data models, it is prefered to use Swift Codable protocol instead of ObjectMapper. 
 
 ### Bond
 Simplify ViewController ViewModel binding using [Bond](https://github.com/DeclarativeHub/Bond)
@@ -64,8 +85,8 @@ This template us using [SwiftLint](https://github.com/realm/SwiftLint) for stati
 TBD
 
 ### Continuous Integration
-AppCentar
+Microsoft AppCenter
 
 ## Maintainers
 
-- [Haris Dizdarevic](https://github.com/haris-dizdarevic), [Zaharije Pasalic](https://github.com/zpasal) and [Adin Ćebić](https://github.com/adincebic)
+- [Haris Dizdarevic](https://github.com/haris-dizdarevic), [Zaharije Pasalic](https://github.com/zpasal)

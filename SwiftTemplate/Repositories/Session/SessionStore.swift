@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import ObjectMapper
 
 protocol SessionStoreProtocol {
     func save(accessToken: AccessToken)
@@ -17,21 +16,22 @@ protocol SessionStoreProtocol {
 
 // Change from memory store to something persistable : Local or Realm
 class SessionStore: SessionStoreProtocol {
-    let accessTokenKey: String = "ACCESS_TOKEN_JSON"
+    private let accessTokenKey: String = "ACCESS_TOKEN_JSON"
     static let currentSession = SessionStore()
 
     func save(accessToken: AccessToken) {
-        UserDefaults.standard.set(accessToken.toJSONString(), forKey: accessTokenKey)
+        guard let encodedToken = try? accessToken.encoded() else { return }
+        KeyChainHelper.save(key: accessTokenKey, data: encodedToken)
     }
 
     func get() -> AccessToken? {
-        if let accessTokenJSON: String = UserDefaults.standard.value(forKey: accessTokenKey) as? String {
-            return Mapper<AccessToken>().map(JSONString: accessTokenJSON)
+        guard let accessToken = KeyChainHelper.load(key: accessTokenKey) else {
+            return nil
         }
-        return nil
+        return try? accessToken.decoded()
     }
 
     func clear() {
-        UserDefaults.standard.removeObject(forKey: accessTokenKey)
+        KeyChainHelper.removeData(forKey: accessTokenKey)
     }
 }
