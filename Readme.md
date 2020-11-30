@@ -1,8 +1,8 @@
 [![Build status](https://build.appcenter.ms/v0.1/apps/dec0333b-e254-4bc9-a2ce-65237640e84a/branches/dev/badge)](https://appcenter.ms)
 
-# BawagPSK mobile banking
+# Swift template
 
-iOS project for Klar and EasyBank   applications.
+A starting point for new iOS projects at Klika.
 
 ## Setup
 
@@ -39,9 +39,8 @@ A tool to enforce Swift style and conventions, loosely based on [GitHub's Swift 
 Currently done manually.
 
 ### Build scripts
-We are currently using two scripts:
+We are currently using only one script:
 * runSwiftlint.sh | Runs swiftlint in debug configuration only
-* stripUnusedArchitectures | Stripps unused architectures for static frameworks.
 
 Scripts are located under BuildScripts folder at the root of the project.
 
@@ -68,8 +67,7 @@ Use [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflo
 ## Tools
 
 ### Networking with Alamofire
-Networking is implemented via [Alamofire](https://github.com/Alamofire/Alamofire) that enables easy parsing of response to Api Models inside app together with  [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper).
-NOTE: For new data models, it is prefered to use Swift Codable protocol instead of ObjectMapper. 
+Networking is implemented via [Alamofire](https://github.com/Alamofire/Alamofire) that enables easy parsing of response to ApI Models inside app together with Swift Codable protocol.
 
 ### Bond
 Simplify ViewController ViewModel binding using [Bond](https://github.com/DeclarativeHub/Bond)
