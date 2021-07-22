@@ -6,17 +6,17 @@
         "repositoryURL": "https://github.com/alamofire/alamofire",
         "state": {
           "branch": null,
-          "revision": "9e0328127dfb801cefe8ac53a13c0c90a7770448",
-          "version": "5.4.0"
+          "revision": "f96b619bcb2383b43d898402283924b80e2c4bae",
+          "version": "5.4.3"
         }
       },
       {
-        "package": "App Center",
+        "package": "AppCenter",
         "repositoryURL": "https://github.com/microsoft/appcenter-sdk-apple",
         "state": {
           "branch": null,
-          "revision": "79d99eaff599d1b38adf81884fe220c75fd38867",
-          "version": "4.0.0"
+          "revision": "6d60d2361445e959b4fbb3a9d0dbae0e07eead1a",
+          "version": "4.2.0"
         }
       },
       {
@@ -39,11 +39,11 @@
       },
       {
         "package": "PLCrashReporter",
-        "repositoryURL": "https://github.com/microsoft/plcrashreporter.git",
+        "repositoryURL": "https://github.com/microsoft/PLCrashReporter.git",
         "state": {
           "branch": null,
-          "revision": "de6b8f9db4b2a0aa859a5507550a70548e4da936",
-          "version": "1.8.1"
+          "revision": "d747ab5de269cd44022bbe96ff9609d8626694ab",
+          "version": "1.9.0"
         }
       },
       {
@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/DeclarativeHub/ReactiveKit.git",
         "state": {
           "branch": null,
-          "revision": "5b167a3fa7288395cfcba23dac84489b01d3b2f0",
-          "version": "3.18.1"
+          "revision": "224225f1b4c062ecfd0707f5e156027579630a79",
+          "version": "3.18.2"
         }
       },
       {
@@ -60,17 +60,17 @@
         "repositoryURL": "https://github.com/realm/realm-cocoa",
         "state": {
           "branch": null,
-          "revision": "a4c647a5b2705591bf9472aed46786d00b71ea2b",
-          "version": "10.1.4"
+          "revision": "77658519b13388c098a7624a94491738f8bb2983",
+          "version": "10.10.0"
         }
       },
       {
-        "package": "RealmCore",
+        "package": "RealmDatabase",
         "repositoryURL": "https://github.com/realm/realm-core",
         "state": {
           "branch": null,
-          "revision": "596fe8985a2bcdf3c6ecb0a7a8712b9ac5480c79",
-          "version": "10.1.3"
+          "revision": "95da0df7815d7cbaff14ed5e8b73fe4c2a992816",
+          "version": "11.0.4"
         }
       }
     ]
