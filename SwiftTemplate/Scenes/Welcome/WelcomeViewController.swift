@@ -9,16 +9,23 @@
 import UIKit
 
 class WelcomeViewController: AppViewController<WelcomeViewModel> {
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.checkLoginStatus()
     }
 
-    @IBAction func onRegisterClicked(_ sender: Any) {
-        viewModel.onRegisterClicked()
-    }
+    override func bindViewModel() {
+        super.bindViewModel()
 
-    @IBAction func onLoginClicked(_ sender: Any) {
-        viewModel.onLoginClicked()
+        loginButton.reactive.tapGesture().observeNext { [weak self] _ in
+            self?.viewModel.onLoginClicked()
+        }.dispose(in: bag)
+
+        registerButton.reactive.tapGesture().observeNext { [weak self] _ in
+            self?.viewModel.onRegisterClicked()
+        }.dispose(in: bag)
     }
 }
