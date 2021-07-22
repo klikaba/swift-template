@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RealmSwift
 
 class CountriesViewModel: AppViewModel {
     private let countriesRepository: CountriesRepositoryProtocol!
@@ -22,21 +21,19 @@ class CountriesViewModel: AppViewModel {
     init(countriesRepository: CountriesRepository) {
         self.countriesRepository = countriesRepository
         super.init()
-        countriesRepository.refreshCompletionHandler = { [weak self] error in
-            self?.refreshCompletionHandler(error)
-        }
     }
 
     func refreshCountries() {
-        countriesRepository.refreshCountries()
+        countriesRepository.refreshCountries { [weak self] error in
+            self?.refreshCompletedCallback(error)
+        }
     }
 
-    private func refreshCompletionHandler(_ error: ApiError?) {
+    private func refreshCompletedCallback(_ error: ApiError?) {
         self.error.value = error
         if error == nil {
             countries = Array(countriesRepository.getCountries())
         }
         onRefreshCompleted?(error)
     }
-
 }

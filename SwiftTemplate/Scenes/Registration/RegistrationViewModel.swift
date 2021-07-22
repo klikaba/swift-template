@@ -8,33 +8,27 @@
 
 import Foundation
 import ReactiveKit
-import Bond
 
 class RegistrationViewModel: AppViewModel {
-    let userRepository: UserRepository!
-    let registrationNavigator: AppNavigatorProtocol!
+    private let userRepository: UserRepository!
+    private let registrationNavigator: AppNavigatorProtocol!
 
-    // Input
-    var username = Property<String?>("")
-    var password = Property<String?>("")
+    let username = Property<String?>("")
+    let password = Property<String?>("")
 
     init(userRepository: UserRepository, registrationNavigator: AppNavigatorProtocol) {
         self.userRepository = userRepository
         self.registrationNavigator = registrationNavigator
         super.init()
-        self.userRepository.userActionCompletionHandler = { [weak self] (error) in
-            self?.onUserActionCompletedHandler(error)
-        }
     }
 
     func doRegistration() {
-        userRepository.create(username: username.value!, password: password.value!)
-    }
-
-    func onUserActionCompletedHandler(_ error: ApiError?) {
-        self.error.value = error
-        if error == nil {
-            registrationNavigator.goToLogin()
+        userRepository.create(username: username.value!, password: password.value!) { [weak self] error in
+            if let error = error {
+                self?.error.value = error
+                return
+            }
+            self?.registrationNavigator.goToLogin()
         }
     }
 }
