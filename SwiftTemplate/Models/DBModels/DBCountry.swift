@@ -14,6 +14,8 @@ class DBCountry: Object {
         return "id"
     }
 
+    required override init() { super.init() }
+
     init(name: String, code: String) {
         super.init()
         self.id = code
