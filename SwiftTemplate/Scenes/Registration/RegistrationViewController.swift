@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Bond
 
 class RegistrationViewController: AppViewController<RegistrationViewModel> {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var registerButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +25,9 @@ class RegistrationViewController: AppViewController<RegistrationViewModel> {
         // Input bind
         viewModel.username.bidirectionalBind(to: usernameTextField.reactive.text)
         viewModel.password.bidirectionalBind(to: passwordTextField.reactive.text)
-    }
 
-    @IBAction func onRegisterClicked(_ sender: Any) {
-        viewModel.doRegistration()
+        registerButton.reactive.tapGesture().observeNext { [weak self] _ in
+            self?.viewModel.doRegistration()
+        }.dispose(in: bag)
     }
 }

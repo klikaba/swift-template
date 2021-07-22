@@ -23,12 +23,11 @@ class LoginViewController: AppViewController<LoginViewModel> {
     override func bindViewModel() {
         super.bindViewModel()
 
-        // Input bind
         viewModel.username.bidirectionalBind(to: usernameTextField.reactive.text)
         viewModel.password.bidirectionalBind(to: passwordTextField.reactive.text)
-    }
 
-    @IBAction func onLoginClicked(_ sender: Any) {
-        viewModel.doLogin()
+        loginButton.reactive.tapGesture().observeNext { [weak self] _ in
+            self?.viewModel.doLogin()
+        }.dispose(in: bag)
     }
 }
