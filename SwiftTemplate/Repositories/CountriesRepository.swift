@@ -17,15 +17,17 @@ protocol CountriesRepositoryProtocol {
 }
 
 class CountriesRepository: CountriesRepositoryProtocol {
-    var countryDAO: CountryDAO
-    var countriesAPIClient: CountriesApiClientProtocol
-    var countryMapper: CountryMapper
+    private let countryDAO: CountryDAO
+    private let countriesAPIClient: CountriesApiClientProtocol
+    private let countryMapper: CountryMapper
 
     var refreshCompletionHandler: CountriesServiceCompletion?
 
-    init(countryDAO: CountryDAO,
-         countriesAPIClient: CountriesApiClientProtocol,
-         countryMapper: CountryMapper) {
+    init(
+        countryDAO: CountryDAO,
+        countriesAPIClient: CountriesApiClientProtocol,
+        countryMapper: CountryMapper
+    ) {
         self.countryDAO = countryDAO
         self.countriesAPIClient = countriesAPIClient
         self.countryMapper = countryMapper
@@ -51,7 +53,7 @@ class CountriesRepository: CountriesRepositoryProtocol {
         }
     }
 
-    fileprivate func saveToDb(countries: Countries) {
+    private func saveToDb(countries: Countries) {
         let dbCountries = countryMapper.toDatabaseArray(apiModels: countries.countries)
         countryDAO.save(dbCountries)
     }

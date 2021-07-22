@@ -9,12 +9,15 @@
 import Foundation
 
 class WelcomeViewModel: AppViewModel {
-    var onLoginStatus: ((_ isLogedIn: Bool) -> Void)?
     private let welcomeNavigator: WelcomeNavigatorProtocol
-    let session: SessionStoreProtocol
+    private let session: SessionStoreProtocol
 
-    init(welcomeNavigator: WelcomeNavigatorProtocol,
-         session: SessionStoreProtocol = SessionStore.currentSession ) {
+    var onLoginStatus: ((_ isLogedIn: Bool) -> Void)?
+
+    init(
+        welcomeNavigator: WelcomeNavigatorProtocol,
+        session: SessionStoreProtocol = SessionStore.currentSession
+    ) {
         self.welcomeNavigator = welcomeNavigator
         self.session = session
     }

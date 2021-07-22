@@ -8,17 +8,14 @@
 
 import Foundation
 import ReactiveKit
-import Bond
 
 class LoginViewModel: AppViewModel {
+    private let loginRepository: LoginRepository!
+    private let loginNavigator: AppNavigatorProtocol
 
-    let loginRepository: LoginRepository!
-    let loginNavigator: AppNavigatorProtocol
     // Input
-    var username = Property<String?>("")
-    var password = Property<String?>("")
-
-    // Output
+    let username = Property<String?>("")
+    let password = Property<String?>("")
 
     init(loginRepository: LoginRepository, loginNavigator: AppNavigatorProtocol) {
         self.loginRepository = loginRepository
@@ -33,7 +30,7 @@ class LoginViewModel: AppViewModel {
         loginRepository.signIn(username: username.value!, password: password.value!)
     }
 
-    func onLoginCompletedHandler(_ error: ApiError?) {
+    private func onLoginCompletedHandler(_ error: ApiError?) {
         self.error.value = error
         if error == nil {
             loginNavigator.goToHome()

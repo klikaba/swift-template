@@ -10,13 +10,15 @@ class OAuth2Handler: RequestInterceptor {
     private static let serverUrl = AppConfiguration.sharedInstance().serverUrl
 
     private var isRefreshing = false
-private var requestsToRetry: [((RetryResult) -> Void)] = []
+    private var requestsToRetry: [((RetryResult) -> Void)] = []
 
-init() {}
+    init() {}
 
-    func adapt(_ urlRequest: URLRequest,
-               for session: Session,
-               completion: @escaping (Result<URLRequest, Error>) -> Void) {
+    func adapt(
+        _ urlRequest: URLRequest,
+        for session: Session,
+        completion: @escaping (Result<URLRequest, Error>) -> Void
+    ) {
         if let urlString = urlRequest.url?.absoluteString, urlString.hasPrefix(OAuth2Handler.serverUrl),
            let token = SessionStore.currentSession.get()?.accessToken {
             var urlRequest = urlRequest
@@ -27,10 +29,12 @@ init() {}
         completion(.success(urlRequest))
     }
 
-    func retry(_ request: Request,
-               for session: Session,
-               dueTo error: Error,
-               completion: @escaping (RetryResult) -> Void) {
+    func retry(
+        _ request: Request,
+        for session: Session,
+        dueTo error: Error,
+        completion: @escaping (RetryResult) -> Void
+    ) {
         lock.lock() ; defer { lock.unlock() }
         if let response = request.task?.response as? HTTPURLResponse,
             SessionStore.currentSession.get() != nil,
@@ -64,22 +68,29 @@ init() {}
         url.appendPathComponent("oauth")
         url.appendPathComponent("token")
         let token: AccessToken? = SessionStore.currentSession.get()
-        let params = TokenRequest(refreshToken: token?.refreshToken ?? "",
-                                  clientId: AppConfiguration.sharedInstance().apiClient,
-                                  clientSecret: AppConfiguration.sharedInstance().apiSecret,
-                                  grantType: .refreshToken)
-        sessionManager.request(url,
-                               method: .post,
-                               parameters: params).validate()
-            .validate().responseDecodable { [weak self] (response: DataResponse<AccessToken, AFError>) in
-                switch response.result {
-                case .success(let token):
-                    completion(token)
-                case .failure:
-                    completion(nil)
-                }
-                guard let self = self else { return }
-                self.isRefreshing = false
+
+        let params = TokenRequest(
+            refreshToken: token?.refreshToken ?? "",
+            clientId: AppConfiguration.sharedInstance().apiClient,
+            clientSecret: AppConfiguration.sharedInstance().apiSecret,
+            grantType: .refreshToken
+        )
+
+        sessionManager.request(
+            url,
+            method: .post,
+            parameters: params
+        )
+        .validate()
+        .responseDecodable { [weak self] (response: DataResponse<AccessToken, AFError>) in
+            switch response.result {
+            case .success(let token):
+                completion(token)
+            case .failure:
+                completion(nil)
             }
+            guard let self = self else { return }
+            self.isRefreshing = false
+        }
     }
 }

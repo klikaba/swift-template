@@ -53,10 +53,12 @@ class ApiError: AppError {
     static func fromDataResponse<T>(response: DataResponse<T, AFError>) -> ApiError? {
         switch response.result {
         case .failure(let error):
-            return ApiError(request: response.request,
-                            response: response.response,
-                            data: response.data,
-                            error: error)
+            return ApiError(
+                request: response.request,
+                response: response.response,
+                data: response.data,
+                error: error
+            )
         default:
             return nil
         }
