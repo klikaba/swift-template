@@ -21,7 +21,9 @@ class CountriesViewModel: AppViewModel {
     init(countriesRepository: CountriesRepository) {
         self.countriesRepository = countriesRepository
         super.init()
-        countriesRepository.refreshCompletionHandler = refreshCompletionHandler
+        countriesRepository.refreshCompletionHandler = { [weak self] error in
+            self?.refreshCompletionHandler(error)
+        }
     }
 
     func refreshCountries() {

@@ -17,9 +17,9 @@ class AppViewController<TViewModel: AppViewModel>: UIViewController {
     }
 
     func bindViewModel() {
-        _ = viewModel.error.observeNext { [weak self] (error) in
+        viewModel.error.observeNext { [weak self] (error) in
             self?.showError(error: error)
-        }
+        }.dispose(in: bag)
     }
 
     func showError(error: AppError?) {
@@ -27,8 +27,7 @@ class AppViewController<TViewModel: AppViewModel>: UIViewController {
             return
         }
 
-        let alert = UIAlertController(title: "Alert", message: error.message,
-                                      preferredStyle: .alert)
+        let alert = UIAlertController(title: "Alert", message: error.message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
         self.present(alert, animated: true, completion: nil)
     }
