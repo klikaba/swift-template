@@ -133,9 +133,9 @@
 		01DF1C9520E8D7B2005CE550 /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
 		01DF1C9720E8D7FA005CE550 /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
 		01DF1C9920E8DFC6005CE550 /* CountriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesRepository.swift; sourceTree = "<group>"; };
-		600C07E0216B8AF6004B55C4 /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Registration.storyboard; path = SwiftTemplate/Scenes/Login/Registration.storyboard; sourceTree = SOURCE_ROOT; };
-		600C07E2216B8D3D004B55C4 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegistrationViewController.swift; path = SwiftTemplate/Scenes/Login/RegistrationViewController.swift; sourceTree = SOURCE_ROOT; };
-		600C07E4216B8D84004B55C4 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegistrationViewModel.swift; path = SwiftTemplate/Scenes/Login/RegistrationViewModel.swift; sourceTree = SOURCE_ROOT; };
+		600C07E0216B8AF6004B55C4 /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Registration.storyboard; path = SwiftTemplate/Scenes/Registration/Registration.storyboard; sourceTree = SOURCE_ROOT; };
+		600C07E2216B8D3D004B55C4 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegistrationViewController.swift; path = SwiftTemplate/Scenes/Registration/RegistrationViewController.swift; sourceTree = SOURCE_ROOT; };
+		600C07E4216B8D84004B55C4 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegistrationViewModel.swift; path = SwiftTemplate/Scenes/Registration/RegistrationViewModel.swift; sourceTree = SOURCE_ROOT; };
 		600C07E6216B8E18004B55C4 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		600C07E8216B90EE004B55C4 /* UserApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApiClient.swift; sourceTree = "<group>"; };
 		600C07EA216B912F004B55C4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 		600C07EE216B95CB004B55C4 /* UserDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDAO.swift; sourceTree = "<group>"; };
 		600C07F0216B96AA004B55C4 /* UserMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMapper.swift; sourceTree = "<group>"; };
 		601D7A7C2173362800C143A5 /* AppNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigator.swift; sourceTree = "<group>"; };
-		601D7A7E21733E3400C143A5 /* RegistrationNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegistrationNavigator.swift; path = SwiftTemplate/Scenes/Base/RegistrationNavigator.swift; sourceTree = SOURCE_ROOT; };
+		601D7A7E21733E3400C143A5 /* RegistrationNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegistrationNavigator.swift; path = SwiftTemplate/Scenes/Registration/RegistrationNavigator.swift; sourceTree = SOURCE_ROOT; };
 		601D7A802173419B00C143A5 /* CountriesRepositoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesRepositoryFactory.swift; sourceTree = "<group>"; };
 		601D7A822173426C00C143A5 /* WelcomeViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModelFactory.swift; sourceTree = "<group>"; };
 		601D7A84217343FA00C143A5 /* LoginViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelFactory.swift; sourceTree = "<group>"; };
@@ -205,13 +205,6 @@
 				726529552569458500676A6E /* KeyChainHelper.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		012C422820B716AD007EC314 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		012C422B20B71705007EC314 /* Models */ = {
@@ -403,7 +396,6 @@
 				012C423720B7192A007EC314 /* DAO */,
 				012C423820B71931007EC314 /* Networking */,
 				012C423220B718FA007EC314 /* Repositories */,
-				012C422820B716AD007EC314 /* Components */,
 				012C424720B723AB007EC314 /* Scenes */,
 				012C422020B71192007EC314 /* Utils */,
 				01DBF24520B6FC1600DCEF1B /* AppDelegate.swift */,
