@@ -21,6 +21,8 @@ class DBUser: Object {
         return "id"
     }
 
+    required override init() { super.init() }
+
     // swiftlint:disable:next identifier_name
     init(id: String, name: String, nickname: String, email: String, goldToSend: Int, goldReceived: Int) {
         super.init()
