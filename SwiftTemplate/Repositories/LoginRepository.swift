@@ -8,23 +8,25 @@
 
 import Foundation
 
-typealias LoginServiceLoginCompletion = (_ error: ApiError?) -> Void
+typealias LoginCallback = (_ error: ApiError?) -> Void
 
 protocol LoginRepositoryProtocol {
-     func signIn(username: String, password: String)
+     func signIn(username: String, password: String, callback: @escaping LoginCallback)
 }
 
 class LoginRepository: LoginRepositoryProtocol {
-    var loginCompletionHandler: LoginServiceLoginCompletion?
+    private let apiClient: UserApiClient
 
-    func signIn(username: String, password: String) {
-        UserApiClient().signIn(username: username, password: password, callback: onSignInCompleted)
+    init(apiClient: UserApiClient = UserApiClient()) {
+        self.apiClient = apiClient
     }
 
-    private func onSignInCompleted(_ accessToken: AccessToken?, _ error: ApiError?) {
-        if let accessToken = accessToken {
-            SessionStore.currentSession.save(accessToken: accessToken)
+    func signIn(username: String, password: String, callback: @escaping LoginCallback) {
+        apiClient.signIn(username: username, password: password) { token, error in
+            if let accessToken = token {
+                SessionStore.currentSession.save(accessToken: accessToken)
+            }
+            callback(error)
         }
-        loginCompletionHandler?(error)
     }
 }

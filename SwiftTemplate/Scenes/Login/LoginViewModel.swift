@@ -21,19 +21,15 @@ class LoginViewModel: AppViewModel {
         self.loginRepository = loginRepository
         self.loginNavigator = loginNavigator
         super.init()
-        self.loginRepository.loginCompletionHandler = { [weak self] (error) in
-            self?.onLoginCompletedHandler(error)
-        }
     }
 
     func doLogin() {
-        loginRepository.signIn(username: username.value!, password: password.value!)
-    }
-
-    private func onLoginCompletedHandler(_ error: ApiError?) {
-        self.error.value = error
-        if error == nil {
-            loginNavigator.goToHome()
+        loginRepository.signIn(username: username.value!, password: password.value!) { [weak self] error in
+            if let error = error {
+                self?.error.value = error
+                return
+            }
+            self?.loginNavigator.goToHome()
         }
     }
 }

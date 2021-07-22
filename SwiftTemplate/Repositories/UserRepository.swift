@@ -7,14 +7,19 @@
 //
 
 import Foundation
-typealias UserActionCompletion = (_ error: ApiError?) -> Void
+
+typealias UserCallback = (_ error: ApiError?) -> Void
+
+protocol UserRepositoryProtocol {
+    func create(username: String, password: String, callback: @escaping UserCallback)
+    func refreshUser(identifier: String, callback: @escaping UserCallback)
+    func getUser(identifier: String) -> DBUser?
+}
 
 class UserRepository {
     private let userDAO: UserDAO
     private let userAPIClient: UserApiClient
     private let userMapper: UserMapper
-
-    var userActionCompletionHandler: UserActionCompletion?
 
     init(userDAO: UserDAO, userAPIClient: UserApiClient, userMapper: UserMapper) {
         self.userDAO = userDAO
@@ -22,28 +27,26 @@ class UserRepository {
         self.userMapper = userMapper
     }
 
-    func create(username: String, password: String) {
-        userAPIClient.create(username: username, password: password, callback: onUserLoaded)
+    func create(username: String, password: String, callback: @escaping UserCallback) {
+        userAPIClient.create(username: username, password: password) { [weak self ] user, error in
+            if let user = user {
+                self?.saveToDb(user: user)
+            }
+            callback(error)
+        }
     }
 
-    func refreshUser(identifier: String) {
-        userAPIClient.getUser(identifier: identifier, callback: onUserLoaded)
+    func refreshUser(identifier: String, callback: @escaping UserCallback) {
+        userAPIClient.getUser(identifier: identifier) { [weak self ] user, error in
+            if let user = user {
+                self?.saveToDb(user: user)
+            }
+            callback(error)
+        }
     }
 
     func getUser(identifier: String) -> DBUser? {
         return userDAO.load(forPrimaryKey: identifier)
-    }
-
-    func onUserLoaded(_ user: User?, _ error: ApiError?) {
-        if let error = error {
-            userActionCompletionHandler?(error)
-            return
-        }
-
-        if let user = user {
-            saveToDb(user: user)
-            userActionCompletionHandler?(nil)
-        }
     }
 
     private func saveToDb(user: User) {
