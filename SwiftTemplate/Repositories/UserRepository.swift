@@ -10,9 +10,9 @@ import Foundation
 typealias UserActionCompletion = (_ error: ApiError?) -> Void
 
 class UserRepository {
-    var userDAO: UserDAO
-    var userAPIClient: UserApiClient
-    var userMapper: UserMapper
+    private let userDAO: UserDAO
+    private let userAPIClient: UserApiClient
+    private let userMapper: UserMapper
 
     var userActionCompletionHandler: UserActionCompletion?
 
@@ -46,7 +46,7 @@ class UserRepository {
         }
     }
 
-    fileprivate func saveToDb(user: User) {
+    private func saveToDb(user: User) {
         let dbUser = userMapper.toDatabase(apiModel: user)
         userDAO.save(dbUser)
     }

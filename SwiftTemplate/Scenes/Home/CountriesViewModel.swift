@@ -10,8 +10,9 @@ import Foundation
 import RealmSwift
 
 class CountriesViewModel: AppViewModel {
+    private let countriesRepository: CountriesRepositoryProtocol!
+    
     var countries: [DBCountry]?
-    var countriesRepository: CountriesRepositoryProtocol!
     var numberOfRows: Int {
         return countries?.count ?? 0
     }
@@ -30,7 +31,7 @@ class CountriesViewModel: AppViewModel {
         countriesRepository.refreshCountries()
     }
 
-    func refreshCompletionHandler(_ error: ApiError?) {
+    private func refreshCompletionHandler(_ error: ApiError?) {
         self.error.value = error
         if error == nil {
             countries = Array(countriesRepository.getCountries())

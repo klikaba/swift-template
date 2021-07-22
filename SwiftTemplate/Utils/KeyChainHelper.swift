@@ -1,7 +1,7 @@
 import Foundation
 
 class KeyChainHelper {
-    //Save data in keychain in form of key value pair
+    // Save data in keychain in form of key value pair
     @discardableResult class func save(key: String, data: Data) -> OSStatus {
         let query = [ kSecClass as String: kSecClassGenericPassword as String,
                       kSecAttrAccount as String: key,
@@ -18,13 +18,14 @@ class KeyChainHelper {
         SecItemDelete(query as CFDictionary)
     }
 
-    //Get data from keychain using key
+    // Get data from keychain using key
     class func load(key: String) -> Data? {
         let query = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: key,
             kSecReturnData as String: kCFBooleanTrue as Any,
-            kSecMatchLimit as String: kSecMatchLimitOne ] as [String: Any]
+            kSecMatchLimit as String: kSecMatchLimitOne
+        ] as [String: Any]
 
         var dataTypeRef: AnyObject?
 

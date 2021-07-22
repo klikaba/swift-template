@@ -16,17 +16,14 @@ protocol LoginRepositoryProtocol {
 
 class LoginRepository: LoginRepositoryProtocol {
     var loginCompletionHandler: LoginServiceLoginCompletion?
-    var currentSession = SessionStore.currentSession
 
     func signIn(username: String, password: String) {
-        UserApiClient().signIn(username: username,
-                                    password: password,
-                                    callback: onSignInCompleted)
+        UserApiClient().signIn(username: username, password: password, callback: onSignInCompleted)
     }
 
     private func onSignInCompleted(_ accessToken: AccessToken?, _ error: ApiError?) {
         if let accessToken = accessToken {
-            currentSession.save(accessToken: accessToken)
+            SessionStore.currentSession.save(accessToken: accessToken)
         }
         loginCompletionHandler?(error)
     }
