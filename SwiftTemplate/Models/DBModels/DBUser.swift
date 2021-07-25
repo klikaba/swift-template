@@ -1,25 +1,14 @@
 import Foundation
 import RealmSwift
-import Realm
 
 class DBUser: Object {
-    @objc dynamic
     // swiftlint:disable:next identifier_name
-    var id: String = ""
-    @objc dynamic
-    var name: String = ""
-    @objc dynamic
-    var nickname: String = ""
-    @objc dynamic
-    var email: String = ""
-    @objc dynamic
-    var goldToSend: Int = 0
-    @objc dynamic
-    var goldReceived: Int = 0
-
-    override class func primaryKey() -> String? {
-        return "id"
-    }
+    @Persisted(primaryKey: true) var id: String = ""
+    @Persisted var name: String = ""
+    @Persisted var nickname: String = ""
+    @Persisted var email: String = ""
+    @Persisted var goldToSend: Int = 0
+    @Persisted var goldReceived: Int = 0
 
     required override init() { super.init() }
 
