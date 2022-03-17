@@ -10,7 +10,7 @@ import Foundation
 
 class CountriesViewModel: AppViewModel {
     private let countriesRepository: CountriesRepositoryProtocol!
-    
+
     var countries: [DBCountry]?
     var numberOfRows: Int {
         return countries?.count ?? 0

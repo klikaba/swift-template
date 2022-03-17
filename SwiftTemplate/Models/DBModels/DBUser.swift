@@ -2,7 +2,7 @@ import Foundation
 import RealmSwift
 
 class DBUser: Object {
-    // swiftlint:disable:next identifier_name
+    // swiftlint:disable superfluous_disable_command identifier_name
     @Persisted(primaryKey: true) var id: String = ""
     @Persisted var name: String = ""
     @Persisted var nickname: String = ""
@@ -12,7 +12,7 @@ class DBUser: Object {
 
     required override init() { super.init() }
 
-    // swiftlint:disable:next identifier_name
+    // swiftlint:disable superfluous_disable_command identifier_name
     init(id: String, name: String, nickname: String, email: String, goldToSend: Int, goldReceived: Int) {
         super.init()
         self.id = id
