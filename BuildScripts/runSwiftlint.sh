@@ -1,4 +1,5 @@
 CURRENT_CONFIGURATION=${CONFIGURATION}
+export PATH="$PATH:/opt/homebrew/bin"
 
 # Exit out of the script if current configuration is not debug
 if [[ $CURRENT_CONFIGURATION == *"Release"* ]]; then

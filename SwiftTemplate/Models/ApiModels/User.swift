@@ -1,7 +1,7 @@
 import Foundation
 
 struct User: Codable {
-     // swiftlint:disable:next identifier_name
+    // swiftlint:disable superfluous_disable_command identifier_name
     var id: String
     var name: String
     var nickname: String

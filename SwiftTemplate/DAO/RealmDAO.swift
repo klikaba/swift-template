@@ -40,7 +40,7 @@ class RealmDAO<T: Object> {
         insertAll(objects: data)
     }
 
-    // swiftlint:disable:next identifier_name
+    // swiftlint:disable superfluous_disable_command identifier_name
     func load(forPrimaryKey id: String) -> T? {
         return realm.object(ofType: T.self, forPrimaryKey: id)
     }
